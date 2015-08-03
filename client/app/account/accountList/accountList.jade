@@ -1,0 +1,32 @@
+div(ng-include='"components/navbar/navbar.html"')
+div(ng-include='"components/sidebar/sidebar.html"')
+.content-pane
+  div(ng-show='loading').lynk-loading-spinner-holder
+    div.lynk-loading-spinner
+      img(src='assets/images/loader.gif')
+  header
+    .dropdown(dropdown='', on-toggle='toggled(open)')
+      a.dropdown-toggle(href='', dropdown-toggle='')
+        h1 Accounts
+
+  table.table.table-lynk
+    thead
+      th
+        | &nbsp;
+      th(ng-click="orderByField='name'; reverseSort = !reverseSort") Name
+        i.lynk-align-top.fa.fa-sort-desc
+      th(ng-click="orderByField='contacts.length'; reverseSort = !reverseSort") No. Contacts
+        i.lynk-align-top.fa.fa-sort-desc
+
+    tbody
+      tr(ng-repeat='account in accounts|orderBy:orderByField:reverseSort')
+        td
+          input(type='checkbox' ng-model='account.selected' ng-click='selectAccount(account)')
+
+        td
+          a(href='/account/{{ account._id }}')
+            | {{ account.name }}
+        td {{ account.contacts.length || 'N/A'}}
+
+  br
+  br

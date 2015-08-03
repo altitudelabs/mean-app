@@ -1,0 +1,51 @@
+mixin quarterly-content(tabLabel, targetLabel)
+  //- show table if Quarterly
+  div(ng-if="#{tabLabel}.status === 1")
+    table.table-fixed-width.table-analytics
+      tr
+        th #{targetLabel}
+        th Q1
+        th Q2
+        th Q3
+        th Q4
+      tr(ng-repeat="am in #{tabLabel}.totalProjects_hash.index() | startFrom: ((#{tabLabel}.currentPage -1) * 10) | limitTo: 10" ng-if="#{tabLabel}.filter==='Total Projects'")
+        td {{am.name}}
+        td {{am.q1}}
+        td {{am.q2}}
+        td {{am.q3}}
+        td {{am.q4}}
+      tr(ng-repeat="am in #{tabLabel}.completedConsultations_hash.index() | startFrom: ((#{tabLabel}.currentPage -1) * 10) | limitTo: 10" ng-if="#{tabLabel}.filter==='Completed Consultations' || #{tabLabel}.filter==='Total Consultations'")
+        td {{am.name}}
+        td {{am.q1}}
+        td {{am.q2}}
+        td {{am.q3}}
+        td {{am.q4}}
+      tr(ng-repeat="am in #{tabLabel}.ranking_hash.index() | orderBy:currentQuarterText:true | startFrom: ((#{tabLabel}.currentPage -1) * 10) | limitTo: 10" ng-if="#{tabLabel}.filter==='Researcher Rank (# consultations)' || #{tabLabel}.filter==='AM Rank (# consultations)'")
+        td {{am.name}}
+        td {{am.q1}}
+        td {{am.q2}}
+        td {{am.q3}}
+        td {{am.q4}}
+      tr(ng-repeat="am in #{tabLabel}.projectYield_hash.index() | startFrom: ((#{tabLabel}.currentPage -1) * 10) | limitTo: 10" ng-if="#{tabLabel}.filter==='Project Yield'")
+        td {{am.name}}
+        td {{am.q1 | number}}
+        td {{am.q2 | number}}
+        td {{am.q3 | number}}
+        td {{am.q4 | number}}
+      tr(ng-repeat="am in #{tabLabel}.top10Clients_hash.index() | orderBy:currentQuarterText:true" ng-if="#{tabLabel}.filter==='Top 10 Clients'")
+        td {{am.name}}
+        td {{am.q1 | number}}
+        td {{am.q2 | number}}
+        td {{am.q3 | number}}
+        td {{am.q4 | number}}
+      tr(ng-repeat="am in #{tabLabel}.top10Experts_hash.index() | orderBy:currentQuarterText:true" ng-if="#{tabLabel}.filter==='Top 10 Experts'")
+        td {{am.name}}
+        td {{am.q1 | number}}
+        td {{am.q2 | number}}
+        td {{am.q3 | number}}
+        td {{am.q4 | number}}
+    .text-center
+      pagination.pagination-sm(total-items='#{tabLabel}.totalProjects_hash.index().length' ng-model='#{tabLabel}.currentPage' items-per-page="10" max-size='1' ng-if="#{tabLabel}.filter==='Total Projects'")
+      pagination.pagination-sm(total-items='#{tabLabel}.completedConsultations_hash.index().length' ng-model='#{tabLabel}.currentPage' items-per-page="10" max-size='1' ng-if="#{tabLabel}.filter==='Completed Consultations' || #{tabLabel}.filter==='Total Consultations'")
+      pagination.pagination-sm(total-items='#{tabLabel}.projectYield_hash.index().length' ng-model='#{tabLabel}.currentPage' items-per-page="10" max-size='1' ng-if="#{tabLabel}.filter==='Project Yield'")
+      pagination.pagination-sm(total-items='#{tabLabel}.ranking_hash.index().length' ng-model='#{tabLabel}.currentPage' items-per-page="10" max-size='1' ng-if="#{tabLabel}.filter==='Researcher Rank (# consultations)' || #{tabLabel}.filter==='AM Rank (# consultations)'")

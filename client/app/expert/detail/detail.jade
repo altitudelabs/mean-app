@@ -1,0 +1,273 @@
+div(ng-include='"components/navbar/navbar.html"')
+div(ng-include='"components/sidebar/sidebar.html"')
+
+.content-pane.expert-detail-overview-tab
+  div(ng-show='loading').lynk-loading-spinner-holder
+    div.lynk-loading-spinner
+      img(src='assets/images/loader.gif')
+  header.clearfix
+    .header-short
+      .dropdown(dropdown='', on-toggle='toggled(open)')
+        a.dropdown-toggle(href='', dropdown-toggle='')
+          h1 {{ expert.name }}
+            //- i.lynk-align-text-top.fa.fa-sort-desc
+        //- ul.nav.dropdown-menu.dropdown-menu-left.dropdown-carat.dropdown-menu-thin
+        //-   li
+        //-     a(ng-click='') Rename expert
+    .position {{ expert.title || 'No Title'}}, {{ expert.company || 'No Company' }} ({{ expert.startDate || 'N/A' | date: 'MMM y' }} - Present)
+
+  tabset
+    tab(heading='Overview')
+      .col-md-8.left-column
+        .col-md-6.editable-trigger
+          h4 Type
+            //- a.icon-edit.lynk.lynk-edit(ng-click='editType.$show()', ng-hide='editType.$visible')
+          div(editable-text='expert.knowledgePartner' e-form='editType', onaftersave='updateData()') {{ expert.knowledgePartner || 'N/A' }}
+        .col-md-6.editable-trigger
+          h4 Progress Status
+            //- a.icon-edit.lynk.lynk-edit(ng-click='editRegion()')
+          div {{ expert.progressStatus || 'N/A'}}
+        .clearfix
+
+        .col-md-6.editable-trigger
+          h4 Email
+            //- a.icon-edit.lynk.lynk-edit(ng-click='editRegion()')
+          div {{ expert.contacts[0].properties.email[0].value || 'N/A' }}
+        .col-md-6.editable-trigger
+          h4 Phone
+            //- a.icon-edit.lynk.lynk-edit(ng-click='editIndustry()')
+          div {{ expert.contacts[0].properties.phone[0].value || 'N/A' }}
+        .clearfix
+
+        .col-md-6.editable-trigger
+          h4 LinkedIn Profile
+            //- a.icon-edit.lynk.lynk-edit(ng-click='editLinkedInProfile.$show()', ng-hide='editLinkedInProfile.$visible')
+          //- div(editable-text='expert.linkedInProfile' e-form='editLinkedInProfile', onaftersave='updateData()') {{ expert.linkedInProfile || 'N/A' }}
+          div {{ expert.contacts[0].properties.liid[0].value || 'N/A' }}
+        .col-md-6
+          h4 Location
+          div {{ expert.location || 'N/A' }}
+        .clearfix
+
+        .col-md-12.editable-trigger
+          h4 Compliance Notes
+            a.icon-edit.lynk.lynk-edit(ng-click='editComplianceNotes.$show()', ng-hide='editComplianceNotes.$visible')
+            //- a.icon-edit.lynk.lynk-edit(ng-click='editGeneralNotes.$show()', ng-hide='editGeneralNotes.$visible')
+          //- .pre(editable-textarea='expert.generalNotes', e-ng-keydown='textareaKeydown($event, $form)', e-form='editGeneralNotes', onaftersave='updateData()') {{ expert.generalNotes || 'N/A' }}
+          span(editable-text='expert.complianceNotes' e-form='editComplianceNotes' style='white-space:pre;' onaftersave='updateData()') {{ expert.complianceNotes || 'N/A' }}
+
+        .col-md-12.editable-trigger
+          h4 General Notes
+            //- a.icon-edit.lynk.lynk-edit(ng-click='editGeneralNotes.$show()', ng-hide='editGeneralNotes.$visible')
+          //- .pre(editable-textarea='expert.generalNotes', e-ng-keydown='textareaKeydown($event, $form)', e-form='editGeneralNotes', onaftersave='updateData()') {{ expert.generalNotes || 'N/A' }}
+          div(style='white-space:pre;') {{ expert.notes || 'N/A' }}
+        .col-md-12
+          h4 Project Specific Notes
+          .project-note(ng-if='projectsTab.projects.length > 0', ng-repeat='project in projectsTab.projects')
+            a.project-name(href='/project/{{ project._id }}')
+              | {{ project.name }}
+            div(style='white-space:pre;') {{ project.projectSpecificExperts.notes || 'N/A' }}
+          .project-note(ng-if='!projectsTab.projects.length')
+            | N/A
+      .col-md-4.right-column
+        .col-md-12.pre.editable-trigger
+          h4.account-header Bio
+            a.icon-edit.lynk.lynk-edit(ng-click='editBio()')
+          .bio {{ expert.bio || 'N/A' }}
+          hr
+          h4.account-header Project Specific Bios
+          .project-bio(ng-if='projectsTab.projects.length > 0', ng-repeat='project in projectsTab.projects')
+            a.project-name(href='/project/{{ project._id }}')
+              | {{ project.name }}
+            .history history:
+            div {{ project.projectSpecificExperts.history }}
+            .experience experience:
+            div(style='white-space:pre;') {{ project.projectSpecificExperts.experience }}
+          .project-bio(ng-if='!projectsTab.projects.length')
+            |N/A
+
+      .clearfix
+
+
+    //-tab(heading='Compliance')
+
+
+    tab(heading='Projects')
+      table.table.table-lynk.table-fixed-width
+        thead
+          th(ng-click="orderByField='status'; reverseSort = !reverseSort") Status
+            i.lynk-align-top.fa.fa-sort-desc
+          th(ng-click="orderByField='caseCode'; reverseSort = !reverseSort") Case Code
+            i.lynk-align-top.fa.fa-sort-desc
+          th(ng-click="orderByField='startDate'; reverseSort = !reverseSort") Start Date
+            i.lynk-align-top.fa.fa-sort-desc
+          th.pc-20(ng-click="orderByField='name'; reverseSort = !reverseSort") Name
+            i.lynk-align-top.fa.fa-sort-desc
+          th(ng-click="orderByField='region'; reverseSort = !reverseSort") Region
+            i.lynk-align-top.fa.fa-sort-desc
+          th(ng-click="orderByField='industries'; reverseSort = !reverseSort") Industry
+            i.lynk-align-top.fa.fa-sort-desc
+          th(ng-click="orderByField='account'; reverseSort = !reverseSort") Account
+            i.lynk-align-top.fa.fa-sort-desc
+          th(ng-click="orderByField='clients'; reverseSort = !reverseSort") Client
+            i.lynk-align-top.fa.fa-sort-desc
+          th(ng-click="orderByField='manager'; reverseSort = !reverseSort") Manager
+            i.lynk-align-top.fa.fa-sort-desc
+        tbody
+          tr(ng-if='projectsTab.projects.length > 0', ng-repeat='project in projectsTab.projects|orderBy:orderByField:reverseSort')
+            td {{ project.status }}
+            td {{ project.caseCode }}
+            td {{ project.startDate | date:'d MMM yyyy' }}
+            td.name
+              a(href='/project/{{ project._id }}')
+                | {{ project.name }}
+            td {{ project.region[0].display }}
+            td {{ project.industries[0].display }}
+            td {{ project.account[0].name }}
+            td {{ project.clients[0].name }}
+            td {{ project.manager.name }}
+          tr(ng-if='projectsTab.projects.length === 0')
+            td.text-center(colspan='9')
+              span Not involved in any projects yet
+
+
+    tab(heading='Consultations')
+      table.table.table-lynk.table-fixed-width
+        thead
+          th.px-80(ng-click="orderByField=''; reverseSort = !reverseSort") Ref #
+            i.lynk-align-top.fa.fa-sort-desc
+          th.px-120(ng-click="orderByField='name'; reverseSort = !reverseSort") Title
+            i.lynk-align-top.fa.fa-sort-desc
+          th.px-120(ng-click="orderByField='project.name'; reverseSort = !reverseSort") Project
+            i.lynk-align-top.fa.fa-sort-desc
+          th(ng-click="orderByField='clients[0].name'; reverseSort = !reverseSort") Client
+            i.lynk-align-top.fa.fa-sort-desc
+          th.px-100(ng-click="orderByField='hourlyRate'; reverseSort = !reverseSort") Rate
+            i.lynk-align-top.fa.fa-sort-desc
+          th.px-100(ng-click="orderByField='scheduledTime'; reverseSort = !reverseSort") Time
+            i.lynk-align-top.fa.fa-sort-desc
+          th.px-80(ng-click="orderByField='duration.durationH*60 + duration.durationM'; reverseSort = !reverseSort") Duration
+            i.lynk-align-top.fa.fa-sort-desc
+          th.px-200(ng-click="orderByField=''; reverseSort = !reverseSort") Compliance
+            i.lynk-align-top.fa.fa-sort-desc
+        tbody
+          tr(ng-if='consultationsTab.consultations.length > 0', ng-repeat='consultation in consultationsTab.consultations|orderBy:orderByField:reverseSort')
+            td {{ consultation.consultationRef || 'N/A'}}
+            td
+              a(href='/consultation/{{ consultation.objectId }}')
+                | {{ consultation.name }}
+            td.name
+              a(href='/project/{{ consultation.project._id }}')
+                | {{ consultation.project.name }}
+            td {{ consultation.clients[0].name }}
+            td {{ consultation.hourlyRate.currency }} {{consultation.hourlyRate.amount || 'N/A'}}
+            td {{ consultation.scheduledDate | date:'d MMM yyyy'  || 'N/A' }}
+            td {{ consultation.duration.durationH || '?'}}H {{consultation.duration.durationM || '?'}}M
+            td
+              span.lynk-circle-checkbox(ng-class='{"active": consultation.expert.compliance.tncSignedDate}') 1
+              span.lynk-circle-checkbox(ng-class='{"active": consultation.compliance.stage2.status === "approve" || consultation.compliance.stage2.status === "waive"}') 2
+              span.lynk-circle-checkbox(ng-class='{"active": consultation.compliance.stage3.status === "approve" || consultation.compliance.stage3.status === "waive"}') 3
+              span.lynk-circle-checkbox(ng-class='{"active": consultation.compliance.stage4.status === "approve" || consultation.compliance.stage4.status === "waive"}') 4a
+              span.lynk-circle-checkbox(ng-class='{"active": consultation.compliance.stage5.status === "approve" || consultation.compliance.stage5.status === "waive"}') 4b
+              span.lynk-circle-checkbox(ng-class='{"active": consultation.compliance.stage6.status === "approve" || consultation.compliance.stage6.status === "waive"}') 5
+              span.lynk-circle-checkbox(ng-class='{"active": consultation.compliance.stage7.status === "approve" || consultation.compliance.stage7.status === "waive"}') 6
+          tr(ng-if='consultationsTab.consultations.length === 0')
+            td.text-center(colspan='9')
+              span No consultation yet
+    tab(heading='Compliance')
+      h4 Compliance History
+      div.toolbar.clearfix
+        .pull-left
+          span.edit-panel(ng-show='historyTab.editMode')
+            button.btn.btn-light(ng-click='historyTab.delete()')
+              span.lynk.lynk-inline.lynk-delete.lynk-valign-button
+              | Delete
+
+        .pull-right
+          button.btn.btn-primary(ng-click='addHistory()')
+            span.lynk.lynk-inline.lynk-add-white
+            | New History
+      table.table.table-lynk.table-fixed-width
+        thead
+            th.px-30
+              input(type='checkbox' ng-model='historyTab.selectAllState' ng-click="historyTab.selectAll($event)")
+            th.px-100(ng-click="orderByField=''; reverseSort = !reverseSort") Ref #
+              i.lynk-align-top.fa.fa-sort-desc
+            th(ng-click="orderByField=''; reverseSort = !reverseSort") Date
+              i.lynk-align-top.fa.fa-sort-desc
+            th(ng-click="orderByField=''; reverseSort = !reverseSort") Version
+              i.lynk-align-top.fa.fa-sort-desc
+            th.pc-40(ng-click="orderByField=''; reverseSort = !reverseSort") Notes
+              i.lynk-align-top.fa.fa-sort-desc
+            th.px-50
+        tbody
+          tr(ng-if="expert.compliance.history" ng-repeat="history in expert.compliance.history")
+            td
+              input(type='checkbox' ng-model='history.selected' ng-click='historyTab.select(history)')
+            td
+              | {{history.referenceId}}
+            td
+              | {{history.date | date:'dd MMM yyyy'}}
+            td
+              span(ng-if="history.version === '0'") Long
+              span(ng-if="history.version === '1'") Short
+            td
+              div {{history.notes}}
+            td.editable-trigger
+              i.icon-edit-show.lynk.lynk-edit(ng-click="editHistory($index)")
+          tr(ng-if="!expert.compliance.history.length")
+            td.text-center(colspan='6')
+              span No compliance history yet
+      br
+      h4 Temporary Project Compliance
+      div.toolbar.clearfix
+        .pull-left
+          span.edit-panel(ng-show='complianceTab.editMode')
+            button.btn.btn-light(ng-click='complianceTab.delete()')
+              span.lynk.lynk-inline.lynk-delete.lynk-valign-button
+              | Delete
+
+        .pull-right
+          button.btn.btn-primary(ng-click='addCompliance()')
+            span.lynk.lynk-inline.lynk-add-white
+            | New Compliance
+      table.table.table-lynk.table-fixed-width
+        thead
+            th.px-30
+              input(type='checkbox' ng-model='complianceTab.selectAllState' ng-click="complianceTab.selectAll($event)")
+            th.px-100(ng-click="orderByField=''; reverseSort = !reverseSort") Ref #
+              i.lynk-align-top.fa.fa-sort-desc
+            th(ng-click="orderByField=''; reverseSort = !reverseSort") Project
+              i.lynk-align-top.fa.fa-sort-desc
+            th.pc-40(ng-click="orderByField=''; reverseSort = !reverseSort") Notes
+              i.lynk-align-top.fa.fa-sort-desc
+            th(ng-click="orderByField=''; reverseSort = !reverseSort") Compliance
+              i.lynk-align-top.fa.fa-sort-desc
+            th.px-50
+
+        tbody
+          tr(ng-if="expert.projectCompliance" ng-repeat="compliance in expert.projectCompliance track by $index")
+            td
+              input(type='checkbox' ng-model='compliance.selected' ng-click='complianceTab.select(compliance)')
+            td
+              | {{compliance.referenceId}}
+            td
+              a(href='/project/{{ compliance.project._id }}' ng-if="compliance.project")
+                | {{ compliance.project.name}}
+              span(ng-if="!compliance.project") Not Set
+            td
+              | {{ compliance.notes }}
+            td
+              span.lynk-circle-checkbox(ng-class='{"active": compliance.tncSignedDate}') 1
+              span.lynk-circle-checkbox(ng-class='{"active": compliance.stage2.status === "approve" || compliance.stage2.status === "waive"}') 2
+              span.lynk-circle-checkbox(ng-class='{"active": compliance.stage3.status === "approve" || compliance.stage3.status === "waive"}') 3
+              span.lynk-circle-checkbox(ng-class='{"active": compliance.stage4.status === "approve" || compliance.stage4.status === "waive"}') 4a
+              span.lynk-circle-checkbox(ng-class='{"active": compliance.stage5.status === "approve" || compliance.stage5.status === "waive"}') 4b
+              span.lynk-circle-checkbox(ng-class='{"active": compliance.stage6.status === "approve" || compliance.stage6.status === "waive"}') 5
+              span.lynk-circle-checkbox(ng-class='{"active": compliance.stage7.status === "approve" || compliance.stage7.status === "waive"}') 6
+            td.editable-trigger
+              i.icon-edit-show.lynk.lynk-edit(ng-click="editCompliance($index)")
+          tr(ng-if="!expert.projectCompliance.length")
+            td.text-center(colspan='6')
+              span No Project Specific Compliance yet
+

@@ -1,0 +1,31 @@
+.dropdown-menu-archived {
+  min-width: 100px;
+  max-width: 100px;
+  > li {
+    > a {
+      padding: 3px 20px;
+    }
+  }
+}
+
+.dropdown-menu-project {
+  min-width: 120px;
+  max-width: 120px;
+  > li {
+    > a {
+      padding: 3px 22px;
+    }
+  }
+}
+
+.btn-status-archived {
+  width: 100px;
+}
+
+.btn-status-project {
+  width: 120px;
+}
+
+.right-spacer {
+  margin-right: 5px;
+}

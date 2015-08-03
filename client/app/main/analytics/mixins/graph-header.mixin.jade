@@ -1,0 +1,20 @@
+mixin graph-header(tabLabel)
+  div
+    span.dropdown(dropdown='', on-toggle='toggled(open)')
+      a.dropdown-toggle(href='', dropdown-toggle='')
+        button.btn.btn-default.btn-70(type='button')
+          span {{ #{tabLabel}.filter }}
+          i.lynk-align-top.fa.fa-sort-desc
+      ul.options-nav.dropdown-menu.dropdown-carat.dropdown-menu-thin
+        li(ng-repeat="f in #{tabLabel}.filterOptions")
+          a(ng-click="#{tabLabel}.filter = f; #{tabLabel}.refreshGraph()") {{ f }}
+
+    h6.pull-right
+      span.clickable(ng-click="#{tabLabel}.select(0)" ng-class="{active: #{tabLabel}.status===0}") Monthly
+      span &nbsp;|&nbsp;
+      span.clickable(ng-click="#{tabLabel}.select(1)" ng-class="{active: #{tabLabel}.status===1}") Quarterly
+      span &nbsp;|&nbsp;
+      span.clickable(ng-click="#{tabLabel}.select(2)" ng-class="{active: #{tabLabel}.status===2}") Year To Date
+      span &nbsp;|&nbsp;
+      span.clickable(ng-click="#{tabLabel}.select(3)" ng-class="{active: #{tabLabel}.status===3}") All Time
+  .clearfix

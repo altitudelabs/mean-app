@@ -1,0 +1,1 @@
+mongorestore --host=127.0.0.1:27017 --username=eric --password=password --db=admin /Users/altitudelabs/local/lynk/server/prod_data/data/admin

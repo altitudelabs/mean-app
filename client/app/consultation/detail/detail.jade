@@ -1,0 +1,306 @@
+div(ng-include='"components/navbar/navbar.html"')
+div(ng-include='"components/sidebar/sidebar.html"')
+
+.content-pane.consultation-detail
+  div(ng-show='loading').lynk-loading-spinner-holder
+    div.lynk-loading-spinner
+      img(src='assets/images/loader.gif')
+  header.pull-left
+    .header-short.clearfix
+      .dropdown.pull-left(dropdown='', on-toggle='toggled(open)')
+        a.dropdown-toggle(href='', dropdown-toggle='')
+          h1 {{ consultation.name }}
+            //- i.lynk-align-text-top.fa.fa-sort-desc
+    .project
+      a(href='/project/{{consultation.project._id}}')
+        | {{ consultation.project.name }} ({{ consultation.project.clientCaseCode || 'No Client Case Code' }})
+      .btn-transparent.btn-status
+        .indicator(ng-class='getIndicatorClass("{{consultation.projectStatus}}")')
+        | {{ consultation.project.status }}
+    .account-and-client {{ consultation.project.account[0].name }}, {{ consultation.clients[0].name }}
+
+  .pull-right
+    ul.timeline
+      li.completed
+        .bar
+        .bar-below
+        .status Selected
+        .date {{ consultation.selectedDate | date:'d/MM/yyyy' }}
+      li(ng-class='{"completed": consultation.scheduledDate }')
+        .bar
+        .bar-below
+        .status Scheduled
+        .date(ng-if='consultation.scheduledDate') {{ consultation.scheduledDate | date:'d/MM/yyyy' }}
+      li(ng-class='{"completed": consultation.completedDate }')
+        .bar
+        .bar-below
+        .status Completed
+        .date(ng-if='consultation.completedDate') {{ consultation.completedDate | date:'d/MM/yyyy' }}
+      li(ng-class='{"completed": consultation.accountDate }')
+        .bar
+        .bar-below
+        .status Accounting
+        .date(ng-if='consultation.accountDate') {{ consultation.accountDate | date:'d/MM/yyyy' }}
+      li(ng-class='{"completed": consultation.paidDate }')
+        .bar
+        .bar-below
+        .status Paid
+        .date(ng-if='consultation.paidDate') {{ consultation.paidDate | date:'d/MM/yyyy' }}
+      li(ng-class='{"warning": consultation.statusInProject === "postponed" }' ng-if="consultation.statusInProject === 'postponed'")
+        .bar
+        .bar-below
+        .status Postponed
+      li(ng-class='{"warning": consultation.statusInProject === "cancelclient" }' ng-if="consultation.statusInProject === 'cancelclient'")
+        .bar
+        .bar-below
+        .status Cancelled Client
+      li(ng-class='{"warning": consultation.statusInProject === "cancelexpert" }' ng-if="consultation.statusInProject === 'cancelexpert'")
+        .bar
+        .bar-below
+        .status Cancelled Expert
+  .clearfix
+
+  tabset
+    tab(heading='Overview')
+      .col-md-8.left-column
+        .col-md-6.btn-group
+          button.btn(ng-class='{"btn-primary": !consultation.clientInviteId, "btn-white": consultation.clientInviteId}', ng-click='overviewTab.inviteClientModal()') {{ consultation.clientInviteId ? 'Edit Client Invite' : 'Invite Client' }}
+        .col-md-6.btn-group
+          button.btn(ng-class='{"btn-primary": !consultation.expertInviteId, "btn-white": consultation.expertInviteId}', ng-click='overviewTab.inviteExpertModal()') {{ consultation.expertInviteId ? 'Edit Expert Invite' : 'Invite Expert' }}
+        .clearfix
+        .col-md-6.editable-trigger
+          h4 Consultation Ref #
+          span {{ consultation.consultationRef || 'Not Set' }}
+          h4 Consultation Time
+            a.icon-edit.lynk.lynk-edit(ng-click='editConsultationDate.$show()', ng-hide='editConsultationDate.$visible')
+          table
+            tr
+              td.td-left(editable-date='consultation.scheduledDate', e-form='editConsultationDate', placeholder='13/5/2015', onaftersave='editConsultationTime.$show()') {{ consultation.scheduledDate || 'Not Set' | date:'d/MM/yyyy' }}
+              td.td-right(editable-time='consultation.scheduledDate', e-form='editConsultationTime', hour-step='1' minute-step='15' show-meridian='true', onaftersave='updateData()') {{ consultation.scheduledDate || 'Not Set' | date:'HH:mm:ss (UTC Z)' }}
+        .col-md-6.editable-trigger
+          h4 Hourly Rate
+            a.icon-edit.lynk.lynk-edit(ng-click='editHourlyRateAmount.$show()', ng-hide='editHourlyRateAmount.$visible')
+          table
+            tr
+              td.td-left {{ consultation.hourlyRate.currency}}
+              td.td-right(editable-number='consultation.hourlyRate.amount', e-form='editHourlyRateAmount', onaftersave='updateData()') {{ consultation.hourlyRate.amount || '0'}}
+        .clearfix
+        .col-md-6.editable-trigger
+          h4 Duration
+            a.icon-edit.lynk.lynk-edit(ng-click='editDurationH.$show()', ng-hide='editDuration.$visible')
+          table
+            tr
+              td.td-left(editable-number='consultation.duration.durationH', e-min='0', e-max='5000', e-form='editDurationH', onaftersave='editDurationM.$show()') {{ consultation.duration.durationH || '0' }} hours
+              td.td-right(editable-number='consultation.duration.durationM', e-min='0', e-max='59', e-form='editDurationM', onaftersave='updateData()') {{ consultation.duration.durationM || '0'}} minutes
+        .col-md-6
+          h4 Compliance
+          div
+            span.lynk-circle-checkbox(ng-class='{"active": consultation.expert.compliance.tncSignedDate}') 1
+            span.lynk-circle-checkbox(ng-class='{"active": consultation.compliance.stage2.status === "approve" || consultation.compliance.stage2.status === "waive"}') 2
+            span.lynk-circle-checkbox(ng-class='{"active": consultation.compliance.stage3.status === "approve" || consultation.compliance.stage3.status === "waive"}') 3
+            span.lynk-circle-checkbox(ng-class='{"active": consultation.compliance.stage4.status === "approve" || consultation.compliance.stage4.status === "waive"}') 4a
+            span.lynk-circle-checkbox(ng-class='{"active": consultation.compliance.stage5.status === "approve" || consultation.compliance.stage5.status === "waive"}') 4b
+            span.lynk-circle-checkbox(ng-class='{"active": consultation.compliance.stage6.status === "approve" || consultation.compliance.stage6.status === "waive"}') 5
+            span.lynk-circle-checkbox(ng-class='{"active": consultation.compliance.stage7.status === "approve" || consultation.compliance.stage7.status === "waive"}') 6
+        .clearfix
+        .col-md-12.editable-trigger
+          h4 Scope
+            a.icon-edit.lynk.lynk-edit(ng-click='editScope.$show()', ng-hide='editScope.$visible')
+          .pre(editable-textarea='consultation.scope', e-ng-keydown='textareaKeydown($event, $form)', e-form='editScope', onaftersave='updateData()')
+            | {{ consultation.scope || 'N/A' }}
+        .clearfix
+        .col-md-6.editable-trigger
+          h4 Client's Feedback
+            a.icon-edit.lynk.lynk-edit(ng-click='editClientFeedback.$show()', ng-hide='editClientFeedback.$visible')
+          .pre(editable-textarea='consultation.feedbackClient', e-ng-keydown='textareaKeydown($event, $form)', e-form='editClientFeedback', onaftersave='updateData()')
+            | {{ consultation.feedbackClient || 'N/A' }}
+        .col-md-6.editable-trigger
+          h4 Expert's Feedback
+            a.icon-edit.lynk.lynk-edit(ng-click='editExpertFeedback.$show()', ng-hide='editExpertFeedback.$visible')
+          .pre(editable-textarea='consultation.feedbackExpert', e-ng-keydown='textareaKeydown($event, $form)', e-form='editExpertFeedback', onaftersave='updateData()')
+            | {{ consultation.feedbackExpert || 'N/A' }}
+        .clearfix
+        br
+      .col-md-4.right-column
+        .editable-trigger.content-multiline
+          h4 Conference Details
+            a.icon-edit.lynk.lynk-edit(ng-click='editConferenceDetails.$show()', ng-hide='editConferenceDetails.$visible')
+          .pre(editable-textarea='consultation.conferenceDetails', e-ng-keydown='textareaKeydown($event, $form)', e-form='editConferenceDetails', onaftersave='updateData()') {{ consultation.conferenceDetails || 'Call (852)??? (ext:??)\nPasscode:??' }}
+          //- div +852 21320922 (HK) <br> +1 121 123 1231 (US) <br> 7438244# (Code)
+        .editable-trigger.content-multiline
+          h4 Expert
+          .account-detail
+            .lynk.lynk-inline.account-profile
+            a(href='/expert/{{consultation.expert.objectId}}')
+              | {{ consultation.expert.name }}
+          .account-detail
+            .lynk.lynk-inline.account-phone
+            | {{ consultation.expert.contacts[0].properties.phone[0].value || 'N/A' }}
+          .account-detail
+            .lynk.lynk-inline.account-mail
+            | {{ consultation.expert.contacts[0].properties.email[0].value || 'N/A' }}
+        .editable-trigger.content-multiline
+          h4 Clients
+          .account-detail
+            .lynk.lynk-inline.account-business
+            | {{ consultation.project.account[0].name }}
+
+          div(ng-repeat='client in consultation.clients')
+            hr
+            .account-detail
+              .lynk.lynk-inline.account-profile
+              | {{ client.name }}
+            .account-detail
+              .lynk.lynk-inline.account-phone
+              | {{ client.contacts[0].properties.phone[0].value || 'N/A' }}
+            .account-detail
+              .lynk.lynk-inline.account-mail
+              | {{ client.contacts[0].properties.email[0].value || 'N/A' }}
+      .clearfix
+
+    tab(heading='Compliance')
+      table.table.table-fixed-width.table-compliance
+        tbody
+          tr
+            td
+              span.lynk-circle-checkbox(ng-class='{"active": consultation.expert.compliance.tncSignedDate}') 1
+              | Signed TSN T&C
+            td.btn-400
+            td.btn-350
+              div.btn-group-justified
+                button.btn.btn-120(ng-class='{"btn-primary": consultation.expert.compliance.tncSignedDate, "btn-white": consultation.expert.compliance.tncSignedDate === undefined}') Signed&nbsp;&nbsp;&nbsp;
+                  input(type='checkbox' disabled="disabled" ng-checked='consultation.expert.compliance.tncSignedDate')
+                input.btn-160.btn-date.date-select(ng-model='consultation.expert.compliance.tncSignedDate', type='date' ng-if='consultation.expert.compliance.tncSignedDate' disabled="disabled")
+                btn.dropdown.btn-version(dropdown='', on-toggle='toggled(open)' ng-if='consultation.expert.compliance.tncSignedDate')
+                  a.dropdown-toggle(href='', dropdown-toggle='')
+                    button.btn.btn-light.btn-70
+                      span(ng-if='consultation.expert.compliance.tncVersionSigned === "0"') Long
+                      span(ng-if='consultation.expert.compliance.tncVersionSigned === "1"') Short
+          tr
+            td
+              span.lynk-circle-checkbox(ng-class='{"active": consultation.compliance.stage2.status === "approve" || consultation.compliance.stage2.status === "waive"}') 2
+              | Conflict check by Client
+            td.btn-400
+            td.btn-350
+              div.btn-group-justified.btn-300
+                div.btn-group
+                  button.btn(ng-class='{"btn-primary": consultation.compliance.stage2.status === "approve"}' ng-click='statusSelect(2, "approve")') Approve
+                div.btn-group
+                  button.btn(ng-class='{"btn-primary": consultation.compliance.stage2.status === "reject"}' ng-click='statusSelect(2, "reject")') Reject
+                div.btn-group
+                  button.btn(ng-class='{"btn-primary": consultation.compliance.stage2.status === "waive"}' ng-click='statusSelect(2, "waive")') Waive
+          tr
+            td
+              span.lynk-circle-checkbox(ng-class='{"active": consultation.compliance.stage3.status === "approve" || consultation.compliance.stage3.status === "waive"}') 3
+              | Additional terms by Expert
+            td.btn-400
+              div.col-md-12.editable-trigger
+                h4.reference Reference No.:
+                  a.icon-edit.lynk.lynk-edit(ng-click='editComplianceS3Id.$show()', ng-hide='editComplianceS3Id.$visible')
+                div.referenceId
+                  span(editable-textarea='consultation.compliance.stage3.referenceId', e-ng-keydown='textareaKeydown($event, $form)', e-form='editComplianceS3Id', onaftersave='updateData()') {{consultation.compliance.stage3.referenceId || 'N/A'}}
+              div.col-md-12.editable-trigger
+                h4.reference Reference Date.:
+                  a.icon-edit.lynk.lynk-edit(ng-click='editComplianceS3Date.$show()', ng-hide='editComplianceS3Date.$visible')
+                div.referenceId
+                  span(editable-date='consultation.compliance.stage3.referenceDate', e-ng-keydown='textareaKeydown($event, $form)', e-form='editComplianceS3Date', onaftersave='updateData()') {{consultation.compliance.stage3.referenceDate || 'N/A' |  date: 'd MMM yyyy'}}
+            td.btn-350
+              div.btn-group-justified.btn-300
+                div.btn-group
+                  button.btn(ng-class='{"btn-primary": consultation.compliance.stage3.status === "approve"}' ng-click='statusSelect(3, "approve")') Approve
+                div.btn-group
+                  button.btn(ng-class='{"btn-primary": consultation.compliance.stage3.status === "reject"}' ng-click='statusSelect(3, "reject")') Reject
+                div.btn-group
+                  button.btn(ng-class='{"btn-primary": consultation.compliance.stage3.status === "waive"}' ng-click='statusSelect(3, "waive")') Waive
+          tr
+            td
+              span.lynk-circle-checkbox(ng-class='{"active": consultation.compliance.stage4.status === "approve" || consultation.compliance.stage4.status === "waive"}') 4a
+              | Questionnaire by expert
+            td.btn-400
+              div.col-md-12.editable-trigger
+                h4.reference Reference No.:
+                  a.icon-edit.lynk.lynk-edit(ng-click='editComplianceS4Id.$show()', ng-hide='editComplianceS4Id.$visible')
+                div.referenceId
+                  span(editable-textarea='consultation.compliance.stage4.referenceId', e-ng-keydown='textareaKeydown($event, $form)', e-form='editComplianceS4Id', onaftersave='updateData()') {{consultation.compliance.stage4.referenceId || 'N/A'}}
+              div.col-md-12.editable-trigger
+                h4.reference Reference Date.:
+                  a.icon-edit.lynk.lynk-edit(ng-click='editComplianceS4Date.$show()', ng-hide='editComplianceS4Date.$visible')
+                div.referenceId
+                  span(editable-date='consultation.compliance.stage4.referenceDate', e-ng-keydown='textareaKeydown($event, $form)', e-form='editComplianceS4Date', onaftersave='updateData()') {{consultation.compliance.stage4.referenceDate || 'N/A' |  date: 'd MMM yyyy'}}
+            td.btn-350
+              div.btn-group-justified.btn-300
+                div.btn-group
+                  button.btn(ng-class='{"btn-primary": consultation.compliance.stage4.status === "approve"}' ng-click='statusSelect(4, "approve")') Approve
+                div.btn-group
+                  button.btn(ng-class='{"btn-primary": consultation.compliance.stage4.status === "reject"}' ng-click='statusSelect(4, "reject")') Reject
+                div.btn-group
+                  button.btn(ng-class='{"btn-primary": consultation.compliance.stage4.status === "waive"}' ng-click='statusSelect(4, "waive")') Waive
+          tr
+            td
+              span.lynk-circle-checkbox(ng-class='{"active": consultation.compliance.stage5.status === "approve" || consultation.compliance.stage5.status === "waive"}') 4b
+              | Red flag approval by Client
+            td.btn-400
+              div.col-md-12.editable-trigger
+                h4.reference Reference No.:
+                  a.icon-edit.lynk.lynk-edit(ng-click='editComplianceS5Id.$show()', ng-hide='editComplianceS5Id.$visible')
+                div.referenceId
+                  span(editable-textarea='consultation.compliance.stage5.referenceId', e-ng-keydown='textareaKeydown($event, $form)', e-form='editComplianceS5Id', onaftersave='updateData()') {{consultation.compliance.stage5.referenceId || 'N/A'}}
+              div.col-md-12.editable-trigger
+                h4.reference Reference Date.:
+                  a.icon-edit.lynk.lynk-edit(ng-click='editComplianceS5Date.$show()', ng-hide='editComplianceS5Date.$visible')
+                div.referenceId
+                  span(editable-date='consultation.compliance.stage5.referenceDate', e-ng-keydown='textareaKeydown($event, $form)', e-form='editComplianceS5Date', onaftersave='updateData()') {{consultation.compliance.stage5.referenceDate || 'N/A' |  date: 'd MMM yyyy'}}
+            td.btn-400
+              div.btn-group-justified.btn-300
+                div.btn-group
+                  button.btn(ng-class='{"btn-primary": consultation.compliance.stage5.status === "approve"}' ng-click='statusSelect(5, "approve")') Approve
+                div.btn-group
+                  button.btn(ng-class='{"btn-primary": consultation.compliance.stage5.status === "reject"}' ng-click='statusSelect(5, "reject")') Reject
+                div.btn-group
+                  button.btn(ng-class='{"btn-primary": consultation.compliance.stage5.status === "waive"}' ng-click='statusSelect(5, "waive")') Waive
+          tr
+            td
+              span.lynk-circle-checkbox(ng-class='{"active": consultation.compliance.stage6.status === "approve" || consultation.compliance.stage6.status === "waive"}') 5
+              | Client specific reminder by TSN
+            td.btn-400
+              div.col-md-12.editable-trigger
+                h4.reference Reference No.:
+                  a.icon-edit.lynk.lynk-edit(ng-click='editComplianceS6Id.$show()', ng-hide='editComplianceS6Id.$visible')
+                div.referenceId
+                  span(editable-textarea='consultation.compliance.stage6.referenceId', e-ng-keydown='textareaKeydown($event, $form)', e-form='editComplianceS6Id', onaftersave='updateData()') {{consultation.compliance.stage6.referenceId || 'N/A'}}
+              div.col-md-12.editable-trigger
+                h4.reference Reference Date.:
+                  a.icon-edit.lynk.lynk-edit(ng-click='editComplianceS6Date.$show()', ng-hide='editComplianceS6Date.$visible')
+                div.referenceId
+                  span(editable-date='consultation.compliance.stage6.referenceDate', e-ng-keydown='textareaKeydown($event, $form)', e-form='editComplianceS6Date', onaftersave='updateData()') {{consultation.compliance.stage6.referenceDate || 'N/A' |  date: 'd MMM yyyy'}}
+            td.btn-400
+              div.btn-group-justified.btn-300
+                div.btn-group
+                  button.btn(ng-class='{"btn-primary": consultation.compliance.stage6.status === "approve"}' ng-click='statusSelect(6, "approve")') Approve
+                div.btn-group
+                  button.btn(ng-class='{"btn-primary": consultation.compliance.stage6.status === "reject"}' ng-click='statusSelect(6, "reject")') Reject
+                div.btn-group
+                  button.btn(ng-class='{"btn-primary": consultation.compliance.stage6.status === "waive"}' ng-click='statusSelect(6, "waive")') Waive
+          tr
+            td
+              span.lynk-circle-checkbox(ng-class='{"active": consultation.compliance.stage7.status === "approve" || consultation.compliance.stage7.status === "waive"}') 6
+              | Final Approval by TSN
+            td.btn-400
+              div.col-md-12.editable-trigger
+                h4.reference Reference No.:
+                  a.icon-edit.lynk.lynk-edit(ng-click='editComplianceS7Id.$show()', ng-hide='editComplianceS7Id.$visible')
+                div.referenceId
+                  span(editable-textarea='consultation.compliance.stage7.referenceId', e-ng-keydown='textareaKeydown($event, $form)', e-form='editComplianceS7Id', onaftersave='updateData()') {{consultation.compliance.stage7.referenceId || 'N/A'}}
+              div.col-md-12.editable-trigger
+                h4.reference Reference Date.:
+                  a.icon-edit.lynk.lynk-edit(ng-click='editComplianceS7Date.$show()', ng-hide='editComplianceS7Date.$visible')
+                div.referenceId
+                  span(editable-date='consultation.compliance.stage7.referenceDate', e-ng-keydown='textareaKeydown($event, $form)', e-form='editComplianceS7Date', onaftersave='updateData()') {{consultation.compliance.stage7.referenceDate || 'N/A' |  date: 'd MMM yyyy'}}
+            td.btn-400
+              div.btn-group-justified.btn-300
+                div.btn-group
+                  button.btn(ng-class='{"btn-primary": consultation.compliance.stage7.status === "approve"}' ng-click='statusSelect(7, "approve")') Approve
+                div.btn-group
+                  button.btn(ng-class='{"btn-primary": consultation.compliance.stage7.status === "reject"}' ng-click='statusSelect(7, "reject")') Reject
+                div.btn-group
+                  button.btn(ng-class='{"btn-primary": consultation.compliance.stage7.status === "waive"}' ng-click='statusSelect(7, "waive")') Waive

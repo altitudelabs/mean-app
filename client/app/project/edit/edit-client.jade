@@ -1,0 +1,9 @@
+.modal-header
+  h3 Edit Clients
+.modal-body
+  .form-group
+    tags-input(ng-model='project.clients', key-property='objectId', display-property='name', replace-spaces-with-dashes='false', add-from-autocomplete-only='true', placeholder='Type to add clients')
+      auto-complete(source='lookupClient($query)', min-length='1')
+.modal-footer
+  button.btn.btn-primary.pull-right(ng-click='ok()') Save
+  button.btn.btn-light.right-spacer.pull-right(ng-click='cancel()') Cancel

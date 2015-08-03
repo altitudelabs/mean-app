@@ -1,0 +1,58 @@
+.modal-header
+  h3 {{ consultation.clientInviteId ? 'Reschedule ' : '' }}Invite Client
+  h5 {{consultation.account[0].name}}, {{consultation.clients[0].name}} ({{consultation.clients[0].contacts[0].properties.email[0].value}})
+  div(ng-show='loading').lynk-loading-spinner-holder
+    div.lynk-loading-spinner
+      img(src='assets/images/loader.gif')
+.modal-body
+  .col-md-6.no-padding
+    .form-group
+      label.label-full-width Date and time
+        span.required *
+        input.form-control(ng-model='consultation.date', type='date', name='date', placeholder='13/5/2015')
+  .col-md-6.no-padding.timepicker
+    timepicker(ng-model='consultation.time', hour-step='1' minute-step='15' show-meridian='true')
+  .form-group
+    label.label-full-width Time zone
+      span.required * {{ $select.search }}
+      ui-select(ng-model='consultation.timezone', theme='bootstrap', ng-disabled='disabled', reset-search-input='false')
+        ui-select-match(placeholder='Enter a timezone...') {{ $select.selected.label }}
+        ui-select-choices(repeat='timezone in timezones | filter: $select.search')
+          .ui-select-choice(ng-bind-html='timezone.label | highlight: $select.search')
+  .form-group
+    label.label-full-width Title
+      span.required *
+      input.form-control(ng-model='consultation.event')
+  .form-group
+    label.label-full-width Description
+      span.required *
+      textarea.form-control(msd-elastic, ng-model='consultation.description')
+  .form-group
+    label.label-full-width Where
+      span.required *
+      textarea.form-control(msd-elastic, ng-model='consultation.whereClient')
+  .form-group
+    label.label-full-width Notify Attendees
+      em.small &nbsp;(attendees' individual calendar settings will override this)
+    div.btn-group.right-spacer(data-toggle='buttons')
+      label.btn.btn-light(ng-class='{active:consultation.notifyClients==true}' ng-click='setNotifyClients(true)')
+        input(type='radio')
+        | Yes
+      label.btn.btn-light(ng-class='{active:consultation.notifyClients==false}' ng-click='setNotifyClients(false)')
+        input(type='radio')
+        | No
+  .form-group
+    label.label-full-width Client Attendees
+    tags-input(key-property='objectId', display-property='name', ng-model='consultation.clientAttendees', replace-spaces-with-dashes='false', add-from-autocomplete-only='true', placeholder='Type to add clients to invite')
+      auto-complete(source='lookupClients($query)', min-length='1')
+  .form-group
+    label.label-full-width Staff Attendees
+    tags-input(key-property='_id', display-property='name', ng-model='consultation.staffAttendees', replace-spaces-with-dashes='false', add-from-autocomplete-only='true', placeholder='Type to add colleagues to invite')
+      auto-complete(source='lookupUsers($query)', min-length='1')
+  .form-group
+    label.label-full-width Extra Attendees
+      em.small  (emails separated by commas below)
+      input.form-control(ng-model='consultation.extraAttendees')
+.modal-footer
+  button.btn.btn-primary.pull-right(ng-click='ok()') Send Invite
+  button.btn.btn-light.right-spacer.pull-right(ng-click='cancel()') Cancel

@@ -1,0 +1,33 @@
+div.navbar.navbar-lynk.navbar-static-top(ng-controller='NavbarCtrl')
+  div.navbar-header
+    button.navbar-toggle(type='button', ng-click='isCollapsed = !isCollapsed')
+      span.sr-only Toggle navigation
+      span.icon-bar
+      span.icon-bar
+      span.icon-bar
+    a.navbar-brand.navbar-brand-lynk(href='/')
+      .lynk.lynk-logo
+
+  div#navbar-main.navbar-collapse.collapse(collapse='isCollapsed')
+    ul.pull-right
+      li(ng-show='isLoggedIn()')
+        //- span.dropdown.right-spacer(dropdown='', on-toggle='')
+        //-   a.dropdown-toggle.profile(href='', dropdown-toggle='')
+        //-     span.notification
+        //-     span.text Notifications
+        //-   ul.nav.dropdown-carat.dropdown-menu.dropdown-menu-right
+        //-     li
+        //-       a(href='')
+        //-         .indicator(ng-class='notification')
+        //-         | Notification 1 [TBU]
+        span.dropdown(dropdown='', on-toggle='toggled(open)')
+          a.dropdown-toggle.profile(href='', dropdown-toggle='')
+            span.picture
+            span.text {{ getCurrentUser().name }}
+          ul.nav.dropdown-carat.dropdown-menu.dropdown-menu-right
+            li
+              a(href='/profile') Edit Profile [TBU]
+            li
+              a(href='/settings') Change Password
+            li(ng-show='isLoggedIn()')
+              a(href='', ng-click='logout()') Logout

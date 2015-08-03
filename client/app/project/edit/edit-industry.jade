@@ -1,0 +1,11 @@
+.modal-header
+  h3 Edit Industry
+.modal-body
+  .form-group
+    label Industry
+      span.required *
+    tags-input(ng-model='project.industries', key-property='_id', 'display-property'='display', replace-spaces-with-dashes='false', add-from-autocomplete-only='true', placeholder='Type to add industry')
+      auto-complete(source='lookupIndustry($query)', min-length='1')
+.modal-footer
+  button.btn.btn-primary.pull-right(ng-click='ok()') Save
+  button.btn.btn-light.right-spacer.pull-right(ng-click='cancel()') Cancel

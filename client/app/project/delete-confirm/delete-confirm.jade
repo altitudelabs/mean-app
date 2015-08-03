@@ -1,0 +1,12 @@
+.modal-header
+  h3 Confirm deletion
+.modal-body
+  div.col-md-12 Are you sure to delete Project:
+    br
+  div.col-md-12(ng-repeat="project in projects") "{{project.name}}"
+  div.col-md-12
+    br
+    div.alert.alert-danger(role="alert") All related consultations will be deleted.
+.modal-footer
+  button.btn.btn-primary.pull-right(ng-click='ok()') Delete
+  button.btn.btn-light.right-spacer.pull-right(ng-click='cancel()') Cancel

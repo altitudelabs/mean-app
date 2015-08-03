@@ -1,0 +1,303 @@
+div(ng-include='"components/navbar/navbar.html"')
+div(ng-include='"components/sidebar/sidebar.html"')
+
+include ./mixins/expert-row.mixin.jade
+include ./mixins/consultation-row.mixin.jade
+
+.content-pane
+  div(ng-show='loading').lynk-loading-spinner-holder
+    div.lynk-loading-spinner
+      img(src='assets/images/loader.gif')
+  header.clearfix
+    .dropdown.pull-left(dropdown='', on-toggle='toggled(open)')
+      a.dropdown-toggle(href='', dropdown-toggle='')
+        h1 {{ project.name }}
+          i.lynk-align-text-top.fa.fa-sort-desc
+      ul.nav.dropdown-menu.dropdown-menu-left.dropdown-carat.dropdown-menu-thin
+        li
+          a(ng-click='renameProject()') Rename project
+        li
+          a(ng-show='isAdmin()', ng-click='inviteMember()') Invite members to project
+        li
+          a(ng-show='isCollaborator() || isAdmin()' ng-click='projectManager()') Set project manager
+        li
+          a(ng-show='isCollaborator() && project.members.length > 1', ng-click='leaveProject()') Leave project
+          a(ng-show='!isCollaborator()', ng-click='joinProject()') Join project
+
+    .dropdown.pull-right(dropdown='', on-toggle='toggled(open)')
+      a.dropdown-toggle(href='', dropdown-toggle='')
+        button.btn.btn-light.left-spacer {{ project.members.length }} Collaborators
+          i.lynk-align-text-top.fa.fa-sort-desc
+      ul.nav.dropdown-menu.dropdown-carat.dropdown-menu-right.dropdown-menu-thin
+        li(ng-repeat='member in project.members')
+          a {{ member.name }}
+            span.lynk-capitalize &nbsp;({{member.role}})
+            span.lynk-capitalize(ng-if='project.manager.name === member.name') &nbsp;(PM)
+
+    .dropdown.pull-right(dropdown='', on-toggle='toggled(open)')
+      a.dropdown-toggle(href='', dropdown-toggle='')
+        button.btn.btn-light.btn-status
+          .indicator(ng-class='getIndicatorClass(project.status)')
+          | {{ project.status }}
+          i.lynk-align-text-top.fa.fa-sort-desc
+      ul.nav.dropdown-menu.dropdown-carat.dropdown-menu-right.dropdown-menu-thin
+        li
+          a(ng-click='setStatus("Active")') Active
+        li
+          a(ng-click='setStatus("On Hold")') On Hold
+        li
+          a(ng-click='setStatus("Closed")') Closed
+        li
+          a(ng-click='setStatus("Archived")') Archived
+
+  tabset
+    tab(heading='Overview')
+      .col-md-8.left-column
+        .col-md-6.editable-trigger
+          h4 Start Date
+            a.icon-edit.lynk.lynk-edit(ng-click='editStartDate.$show()', ng-hide='editStartDate.$visible')
+          div(editable-date='project.startDate', e-form='editStartDate', onaftersave='patchData()') {{ project.startDate | date:'d MMM yyyy' }}
+        .col-md-6.editable-trigger
+          h4 Country / Region
+            a.icon-edit.lynk.lynk-edit(ng-click='editRegion()')
+          div
+            span(ng-repeat='reg in project.region' ng-if='project.region') {{ reg.display }}{{ $last ? '' : ', ' }}
+            span(ng-if='!project.region.length') Not set
+        .clearfix
+
+        .col-md-6
+          h4 Case Code
+            a.icon-edit.lynk.lynk-edit(ng-click='editCaseCode.$show()', ng-hide='editCaseCode.$visible')
+          span {{ project.caseCode }}
+        .col-md-6.editable-trigger
+          h4 Industry
+            a.icon-edit.lynk.lynk-edit(ng-click='editIndustry()')
+          div
+            span(ng-repeat='industry in project.industries' ng-if='project.industries') {{ industry.display }}{{ $last ? '' : ', ' }}
+            span(ng-if='!project.industries.length') Not set
+        .clearfix
+
+        .col-md-6.editable-trigger
+          h4 Client Case Code
+            a.icon-edit.lynk.lynk-edit(ng-click='editClientCaseCode.$show()', ng-hide='editClientCaseCode.$visible')
+          div(editable-text='project.clientCaseCode' e-form='editClientCaseCode', onaftersave='patchData()') {{ project.clientCaseCode }}
+        .col-md-6.editable-trigger
+          h4 Topic
+            a.icon-edit.lynk.lynk-edit(ng-click='editTopic()')
+          div
+            span(ng-repeat='topic in project.topics' ng-if='project.topics') {{ topic.text }}{{ $last ? '' : ', ' }}
+            span(ng-if='!project.topics.length') Not set
+        .clearfix
+
+        .col-md-6.editable-trigger
+          h4 Originating Office
+            a.icon-edit.lynk.lynk-edit(ng-click='editOffice()')
+          div
+            span(ng-if='project.originatingOffice') {{project.originatingOffice.display}}
+            span(ng-if='!project.originatingOffice') Not set
+        .clearfix
+        br
+        .col-md-12.editable-trigger
+          h4 Description
+            a.icon-edit.lynk.lynk-edit(ng-click='editDescription.$show()', ng-hide='editDescription.$visible')
+          .pre(editable-textarea='project.description', e-ng-keydown='textareaKeydown($event, $form)', e-form='editDescription',  e-rows='10', onaftersave='patchData()') {{ project.description || 'N/A'}}
+        .col-md-12.editable-trigger
+          h4 Special Notes
+            a.icon-edit.lynk.lynk-edit(ng-click='editSpecialNotes.$show()', ng-hide='editSpecialNotes.$visible')
+          .pre(editable-textarea='project.specialNotes', e-ng-keydown='textareaKeydown($event, $form)', e-form='editSpecialNotes',  e-rows='10', onaftersave='patchData()') {{ project.specialNotes || 'N/A'}}
+          br
+          br
+      .account-pane.col-md-4
+        .col-md-12.editable-trigger
+          h4.account-header Account
+            a.icon-edit.lynk.lynk-edit(ng-click='editAccount()')
+          .account-detail
+            .lynk.lynk-inline.account-business
+            | {{ project.account[0].name }}
+          .account-detail(ng-if='project.account[0].contacts[0].properties.name')
+            .lynk.lynk-inline.account-profile
+            | {{ project.account[0].contacts[0].properties.name[0].value }}
+          .account-detail(ng-if='project.account[0].contacts[0].properties.phone')
+            .lynk.lynk-inline.account-phone
+            | {{ project.account[0].contacts[0].properties.phone[0].value }}
+          .account-detail(ng-if='project.account[0].contacts[0].properties.email')
+            .lynk.lynk-inline.account-mail
+            | {{ project.account[0].contacts[0].properties.email[0].value }}
+        .col-md-12.editable-trigger
+          h4 Clients
+            a.icon-edit.lynk.lynk-edit(ng-click='editClient()')
+          .client-profile(ng-repeat='client in project.clients')
+            .client-name {{ client.name }}
+            .client-detail {{ client.contacts[0].properties.phone[0].value }}
+            .client-detail {{ client.contacts[0].properties.email[0].value }}
+        .col-md-12
+          h4 Project manager
+          .client-profile(ng-if="project.manager.name")
+            .client-name {{project.manager.name}}
+            .client-detail {{project.manager.email}}
+          .client-profile(ng-if="!(project.manager.name)")
+            .client-name Not set
+      .clearfix
+
+
+    tab(heading='Experts')
+      .toolbar.clearfix
+        .dropdown.pull-left(dropdown='', on-toggle='toggled(open)')
+          button.dropdown-toggle.btn.btn-white.right-spacer(href='', dropdown-toggle='')
+            input.btn-dropdown(type='checkbox' id='experts-select-all-toggle' ng-model='expertsTab.selectAllState' ng-click='expertsTab.selectAll($event)')
+            i.lynk-align-top.fa.fa-sort-desc
+          ul.nav.dropdown-menu.dropdown-carat.dropdown-menu-left.dropdown-menu-thin
+            li
+              a(ng-click='expertsTab.selectExpertsWithStatus("Pending")') Pending
+            li
+              a(ng-click='expertsTab.selectExpertsWithStatus("Approved")') Approved but not sent
+            li
+              a(ng-click='expertsTab.selectExpertsWithStatus("Sent")') Sent to client
+            li
+              a(ng-click='expertsTab.selectExpertsWithStatus("Selected")') Selected
+            li
+              a(ng-click='expertsTab.selectExpertsWithStatus("Rejected")') Rejected
+
+        span.edit-panel.pull-left(ng-show='expertsTab.editMode')
+          .btn-group.right-spacer
+            button.btn.btn-white(ng-click='expertsTab.updateExpertStatus("Approved")')
+              | Approve
+            button.btn.btn-white(ng-click='expertsTab.updateExpertStatus("Sent")')
+              | Sent to Client
+            button.btn.btn-white(ng-click='expertsTab.updateExpertStatus("Selected")')
+              | Select
+            button.btn.btn-white(ng-click='expertsTab.updateExpertStatus("Rejected")')
+              | Reject
+          button.btn.btn-white.right-spacer(clip-copy="textToCopy")
+            | Copy Bios to Clipboard
+            input(type="hidden" ng-model="textToCopy")
+          button.btn.btn-white(ng-click='expertsTab.deleteExperts()')
+            | Delete
+        button.btn.btn-primary.pull-right(ng-click='addExpert()')
+          span.lynk.lynk-inline.lynk-add-white
+          | Add Expert
+
+      table.table.table-lynk.table-lynk-light.table-fixed-width
+        thead
+          th.px-30
+          th.px-70 KP #
+          th.px-130 Expert
+          th Title (Company)
+          th.px-90 KP?
+          th.px-70 Senior?
+          th.px-60 Rate
+          th.px-90 Location
+          th.px-90 Researcher
+          th.px-80
+          th.px-100
+        tbody
+          +expert-row('Pending', 'pending', 'pendingFilter')
+
+          +expert-row('Approved but not sent', 'approved', 'approvedFilter')
+
+          +expert-row('Sent to client', 'sent', 'sentFilter')
+
+          +expert-row('Selected', 'selected', 'selectedFilter')
+
+          +expert-row('Rejected', 'rejected', 'rejectedFilter')
+
+
+
+    tab(heading='Consultations')
+      .toolbar.clearfix
+        .dropdown.pull-left(dropdown='', on-toggle='toggled(open)')
+          button.dropdown-toggle.btn.btn-white.right-spacer(href='', dropdown-toggle='')
+            input.btn-dropdown(type='checkbox' id='consultations-select-all-toggle' ng-model='consultationsTab.selectAllState' ng-click='consultationsTab.selectAll($event)')
+            i.lynk-align-top.fa.fa-sort-desc
+          ul.nav.dropdown-menu.dropdown-carat.dropdown-menu-left.dropdown-menu-thin
+            li
+              a(ng-click='consultationsTab.selectWithStatus("Selected")') Selected
+            li
+              a(ng-click='consultationsTab.selectWithStatus("Scheduled")') Scheduled
+            li
+              a(ng-click='consultationsTab.selectWithStatus("Completed")') Completed
+            li
+              a(ng-click='consultationsTab.selectWithStatus("Sent to Accounting")') Sent to Accounting
+            li
+              a(ng-click='consultationsTab.selectWithStatus("Postponed")') Postponed
+            li
+              a(ng-click='consultationsTab.selectWithStatus("Cancelled by Client")') Cancelled by Client
+            li
+              a(ng-click='consultationsTab.selectWithStatus("Cancelled by Expert")') Cancelled by Expert
+            li
+              a(ng-click='consultationsTab.selectWithStatus("Paid")') Paid
+
+        span.edit-panel.pull-left(ng-show='consultationsTab.editMode')
+          span.dropdown(dropdown='', on-toggle='toggled(open)')
+                  a.dropdown-toggle(href='', dropdown-toggle='')
+                    button.btn.btn-white.right-spacer(type='button')
+                      span Set Status
+                      i.lynk-align-top.fa.fa-sort-desc
+                  ul.options-nav.dropdown-menu.dropdown-carat.dropdown-menu-thin
+                    li
+                      a(ng-click='consultationsTab.updateStatus("Scheduled")') Set as Scheduled
+                    li
+                      a(ng-click='consultationsTab.updateStatus("Completed")') Set as Completed
+                    li
+                      a(ng-click='consultationsTab.updateStatus("Accounting")') Sent to Accounting
+                    li
+                      a(ng-click='consultationsTab.updateStatus("Paid")') Set as Paid
+                    li
+                      a(ng-click='consultationsTab.updateStatus("Postponed")') Set as Postponed
+                    li
+                      a(ng-click='consultationsTab.updateStatus("CancelClient")') Cancelled by Client
+                    li
+                      a(ng-click='consultationsTab.updateStatus("CancelExpert")') Cancelled by Expert
+
+          //- .btn-group.right-spacer
+          //-   button.btn.btn-white(ng-click='consultationsTab.updateStatus("Scheduled")')
+          //-     | Set as Scheduled
+          //-   button.btn.btn-white(ng-click='consultationsTab.updateStatus("Completed")')
+          //-     | Set as Completed
+          //-   button.btn.btn-white(ng-click='consultationsTab.updateStatus("Accounting")')
+          //-     | Sent to Accounting
+          //-   button.btn.btn-white(ng-click='consultationsTab.updateStatus("Postponed")')
+          //-     | Set as Postponed
+          //-   button.btn.btn-white(ng-click='consultationsTab.updateStatus("Cancelled by Client")')
+          //-     | Cancelled by Client
+          //-   button.btn.btn-white(ng-click='consultationsTab.updateStatus("Cancelled by Expert")')
+          //-     | Cancelled by Expert
+          //-   button.btn.btn-white(ng-click='consultationsTab.updateStatus("Paid")')
+          //-     | Set as Paid
+          .btn-group
+            button.btn.btn-white(ng-click='consultationsTab.delete()')
+              | Delete
+        button.btn.btn-primary.pull-right(ng-click='addConsultation()')
+          span.lynk.lynk-inline.lynk-add-white
+          | Add Consultation
+
+
+      table.table.table-lynk.table-lynk-light.table-fixed-width
+        thead
+          th.px-30
+          th.px-200 Title
+          th.px-70 KP #
+          th.px-200 Expert
+          th.px-120 Time
+          th.px-90 Duration
+          th.px-90 Hourly Rate
+          th.px-200 Compliance
+
+        tbody
+          +consultation-row('selected', 'selectedConsultationsFilter')
+
+          +consultation-row('scheduled', 'scheduledConsultationsFilter')
+
+          +consultation-row('completed', 'completedConsultationsFilter')
+
+          +consultation-row('sent to accounting', 'accountConsultationsFilter')
+
+          +consultation-row('paid', 'paidConsultationsFilter')
+
+          +consultation-row('postponed', 'postponedConsultationsFilter')
+
+          +consultation-row('cancelled by client', 'cancelClientConsultationsFilter')
+
+          +consultation-row('cancelled by expert', 'cancelExpertConsultationsFilter')
+      br
+      br

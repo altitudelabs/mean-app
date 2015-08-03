@@ -1,0 +1,264 @@
+{ 
+    "_id" : ObjectId("558d7798ed06b16451092ffa"), 
+    "objectId" : "0", 
+    "display" : "Advertising/ PR/ Media & Entertainment", 
+    "syncDate" : ISODate("2015-07-07T07:03:04.156+0000")
+}
+{ 
+    "_id" : ObjectId("558d7798ed06b16451092ffb"), 
+    "objectId" : "1", 
+    "display" : "Aerospace & Defense", 
+    "syncDate" : ISODate("2015-07-07T07:03:04.158+0000")
+}
+{ 
+    "_id" : ObjectId("558d7798ed06b16451092ffc"), 
+    "objectId" : "2", 
+    "display" : "Automotive", 
+    "syncDate" : ISODate("2015-07-07T07:03:04.160+0000")
+}
+{ 
+    "_id" : ObjectId("558d7798ed06b16451092ffd"), 
+    "objectId" : "3", 
+    "display" : "Business Services - Accounting & Tax", 
+    "syncDate" : ISODate("2015-07-07T07:03:04.161+0000")
+}
+{ 
+    "_id" : ObjectId("558d7798ed06b16451092ffe"), 
+    "objectId" : "4", 
+    "display" : "Business Services - Banking & Finance", 
+    "syncDate" : ISODate("2015-07-07T07:03:04.161+0000")
+}
+{ 
+    "_id" : ObjectId("558d7798ed06b16451092fff"), 
+    "objectId" : "5", 
+    "display" : "Business Services - BPO", 
+    "syncDate" : ISODate("2015-07-07T07:03:04.162+0000")
+}
+{ 
+    "_id" : ObjectId("558d7798ed06b16451093000"), 
+    "objectId" : "6", 
+    "display" : "Business Services - Consulting", 
+    "syncDate" : ISODate("2015-07-07T07:03:04.164+0000")
+}
+{ 
+    "_id" : ObjectId("558d7798ed06b16451093001"), 
+    "objectId" : "7", 
+    "display" : "Business Services - Credit Card & Payment", 
+    "syncDate" : ISODate("2015-07-07T07:03:04.164+0000")
+}
+{ 
+    "_id" : ObjectId("558d7798ed06b16451093002"), 
+    "objectId" : "8", 
+    "display" : "Business Services - Insurance", 
+    "syncDate" : ISODate("2015-07-07T07:03:04.165+0000")
+}
+{ 
+    "_id" : ObjectId("558d7798ed06b16451093003"), 
+    "objectId" : "9", 
+    "display" : "Business Services - Legal", 
+    "syncDate" : ISODate("2015-07-07T07:03:04.167+0000")
+}
+{ 
+    "_id" : ObjectId("558d7798ed06b16451093004"), 
+    "objectId" : "10", 
+    "display" : "Business Services - Recruitment", 
+    "syncDate" : ISODate("2015-07-07T07:03:04.167+0000")
+}
+{ 
+    "_id" : ObjectId("558d7798ed06b16451093005"), 
+    "objectId" : "11", 
+    "display" : "Business Services - Other", 
+    "syncDate" : ISODate("2015-07-07T07:03:04.168+0000")
+}
+{ 
+    "_id" : ObjectId("558d7798ed06b16451093006"), 
+    "objectId" : "12", 
+    "display" : "Construction", 
+    "syncDate" : ISODate("2015-07-07T07:03:04.171+0000")
+}
+{ 
+    "_id" : ObjectId("558d7798ed06b16451093007"), 
+    "objectId" : "13", 
+    "display" : "Consumer - Apparel/ Textiles & Footwear", 
+    "syncDate" : ISODate("2015-07-07T07:03:04.171+0000")
+}
+{ 
+    "_id" : ObjectId("558d7798ed06b16451093008"), 
+    "objectId" : "14", 
+    "display" : "Consumer - Beauty & Personal Care", 
+    "syncDate" : ISODate("2015-07-07T07:03:04.172+0000")
+}
+{ 
+    "_id" : ObjectId("558d7798ed06b16451093009"), 
+    "objectId" : "15", 
+    "display" : "Consumer - Durable Goods", 
+    "syncDate" : ISODate("2015-07-07T07:03:04.174+0000")
+}
+{ 
+    "_id" : ObjectId("558d7798ed06b1645109300a"), 
+    "objectId" : "16", 
+    "display" : "Consumer - Electronics & Appliances", 
+    "syncDate" : ISODate("2015-07-07T07:03:04.178+0000")
+}
+{ 
+    "_id" : ObjectId("558d7798ed06b1645109300b"), 
+    "objectId" : "17", 
+    "display" : "Consumer - F&B Goods", 
+    "syncDate" : ISODate("2015-07-07T07:03:04.181+0000")
+}
+{ 
+    "_id" : ObjectId("558d7798ed06b1645109300c"), 
+    "objectId" : "18", 
+    "display" : "Consumer - FMCG", 
+    "syncDate" : ISODate("2015-07-07T07:03:04.182+0000")
+}
+{ 
+    "_id" : ObjectId("558d7798ed06b1645109300d"), 
+    "objectId" : "19", 
+    "display" : "Consumer - Tobacco", 
+    "syncDate" : ISODate("2015-07-07T07:03:04.183+0000")
+}
+{ 
+    "_id" : ObjectId("558d7798ed06b1645109300e"), 
+    "objectId" : "20", 
+    "display" : "Consumer - Other", 
+    "syncDate" : ISODate("2015-07-07T07:03:04.184+0000")
+}
+{ 
+    "_id" : ObjectId("558d7798ed06b1645109300f"), 
+    "objectId" : "21", 
+    "display" : "Education", 
+    "syncDate" : ISODate("2015-07-07T07:03:04.184+0000")
+}
+{ 
+    "_id" : ObjectId("558d7798ed06b16451093010"), 
+    "objectId" : "22", 
+    "display" : "Energy & Resources - Agriculture / Soft Commodities", 
+    "syncDate" : ISODate("2015-07-07T07:03:04.187+0000")
+}
+{ 
+    "_id" : ObjectId("558d7798ed06b16451093011"), 
+    "objectId" : "23", 
+    "display" : "Energy & Resources - Mining / Hard Commodities", 
+    "syncDate" : ISODate("2015-07-07T07:03:04.189+0000")
+}
+{ 
+    "_id" : ObjectId("558d7798ed06b16451093012"), 
+    "objectId" : "24", 
+    "display" : "Energy & Resources - Oil & Gas", 
+    "syncDate" : ISODate("2015-07-07T07:03:04.233+0000")
+}
+{ 
+    "_id" : ObjectId("558d7798ed06b16451093013"), 
+    "objectId" : "25", 
+    "display" : "Energy & Resources - Power", 
+    "syncDate" : ISODate("2015-07-07T07:03:04.235+0000")
+}
+{ 
+    "_id" : ObjectId("558d7798ed06b16451093014"), 
+    "objectId" : "26", 
+    "display" : "Energy & Resources - Renewables & Environment", 
+    "syncDate" : ISODate("2015-07-07T07:03:04.246+0000")
+}
+{ 
+    "_id" : ObjectId("558d7798ed06b16451093015"), 
+    "objectId" : "27", 
+    "display" : "Energy & Resources - Other", 
+    "syncDate" : ISODate("2015-07-07T07:03:04.246+0000")
+}
+{ 
+    "_id" : ObjectId("558d7798ed06b16451093016"), 
+    "objectId" : "28", 
+    "display" : "Government/ Policy & Economics", 
+    "syncDate" : ISODate("2015-07-07T07:03:04.251+0000")
+}
+{ 
+    "_id" : ObjectId("558d7798ed06b16451093017"), 
+    "objectId" : "29", 
+    "display" : "Healthcare & Life Sciences - Equipment & Services", 
+    "syncDate" : ISODate("2015-07-07T07:03:04.251+0000")
+}
+{ 
+    "_id" : ObjectId("558d7798ed06b16451093018"), 
+    "objectId" : "30", 
+    "display" : "Healthcare & Life Sciences - Pharma & Biotech", 
+    "syncDate" : ISODate("2015-07-07T07:03:04.252+0000")
+}
+{ 
+    "_id" : ObjectId("558d7798ed06b16451093019"), 
+    "objectId" : "31", 
+    "display" : "Healthcare & Life Sciences - Other", 
+    "syncDate" : ISODate("2015-07-07T07:03:04.252+0000")
+}
+{ 
+    "_id" : ObjectId("558d7798ed06b1645109301a"), 
+    "objectId" : "32", 
+    "display" : "Industrials & Manufacturing", 
+    "syncDate" : ISODate("2015-07-07T07:03:04.252+0000")
+}
+{ 
+    "_id" : ObjectId("558d7798ed06b1645109301b"), 
+    "objectId" : "33", 
+    "display" : "Infrastructure - Transportation", 
+    "syncDate" : ISODate("2015-07-07T07:03:04.253+0000")
+}
+{ 
+    "_id" : ObjectId("558d7798ed06b1645109301c"), 
+    "objectId" : "34", 
+    "display" : "Infrastructure - Water", 
+    "syncDate" : ISODate("2015-07-07T07:03:04.253+0000")
+}
+{ 
+    "_id" : ObjectId("558d7798ed06b1645109301d"), 
+    "objectId" : "35", 
+    "display" : "Infrastructure - Other", 
+    "syncDate" : ISODate("2015-07-07T07:03:04.254+0000")
+}
+{ 
+    "_id" : ObjectId("558d7798ed06b1645109301e"), 
+    "objectId" : "36", 
+    "display" : "Logistics & Shipping", 
+    "syncDate" : ISODate("2015-07-07T07:03:04.254+0000")
+}
+{ 
+    "_id" : ObjectId("558d7798ed06b1645109301f"), 
+    "objectId" : "37", 
+    "display" : "Others (Specify)", 
+    "syncDate" : ISODate("2015-07-07T07:03:04.254+0000")
+}
+{ 
+    "_id" : ObjectId("558d7798ed06b16451093020"), 
+    "objectId" : "38", 
+    "display" : "Real Estate", 
+    "syncDate" : ISODate("2015-07-07T07:03:04.255+0000")
+}
+{ 
+    "_id" : ObjectId("558d7798ed06b16451093021"), 
+    "objectId" : "39", 
+    "display" : "Retail & Distribution/Wholesale", 
+    "syncDate" : ISODate("2015-07-07T07:03:04.258+0000")
+}
+{ 
+    "_id" : ObjectId("558d7798ed06b16451093022"), 
+    "objectId" : "40", 
+    "display" : "Security & Identification", 
+    "syncDate" : ISODate("2015-07-07T07:03:04.258+0000")
+}
+{ 
+    "_id" : ObjectId("558d7798ed06b16451093023"), 
+    "objectId" : "41", 
+    "display" : "Technology", 
+    "syncDate" : ISODate("2015-07-07T07:03:04.258+0000")
+}
+{ 
+    "_id" : ObjectId("558d7798ed06b16451093024"), 
+    "objectId" : "42", 
+    "display" : "Telecommunications", 
+    "syncDate" : ISODate("2015-07-07T07:03:04.259+0000")
+}
+{ 
+    "_id" : ObjectId("558d7798ed06b16451093025"), 
+    "objectId" : "43", 
+    "display" : "Travel/ Hospitality & Leisure", 
+    "syncDate" : ISODate("2015-07-07T07:03:04.260+0000")
+}

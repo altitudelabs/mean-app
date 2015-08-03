@@ -1,0 +1,78 @@
+div(ng-include='"components/navbar/navbar.html"')
+div(ng-include='"components/sidebar/sidebar.html"')
+
+include ./mixins/graph-header.mixin.jade
+include ./mixins/monthly-content.mixin.jade
+include ./mixins/quarterly-content.mixin.jade
+
+.content-pane
+  //- Acc. Manager Tab
+  .analytic-content
+    h1 Account Managers
+    +graph-header('AccountManagerTab', 'Account Managers')
+    br
+    +monthly-content('AccountManagerTab', 'Account Managers')
+    +quarterly-content('AccountManagerTab', 'Account Managers')
+    br
+    //- show graph if Year to date / All Time
+    nvd3(options="AccountManagerTab.options" data="AccountManagerTab.data" ng-if="AccountManagerTab.status === 2 || AccountManagerTab.status === 3")
+    .text-center
+      //- Pagination for graphs
+      //- Add more pagination for expert items if items added
+      pagination.pagination-sm(total-items='AccountManagerTab.totalProjects_hash.index().length' ng-model='AccountManagerTab.currentPage' items-per-page="10" max-size='1' ng-if="AccountManagerTab.filter==='Total Projects' && (AccountManagerTab.status === 2 || AccountManagerTab.status === 3)" ng-change="AccountManagerTab.refreshGraph()")
+      pagination.pagination-sm(total-items='AccountManagerTab.completedConsultations_hash.index().length' ng-model='AccountManagerTab.currentPage' items-per-page="10" max-size='1' ng-if="AccountManagerTab.filter==='Completed Consultations' && (AccountManagerTab.status === 2 || AccountManagerTab.status === 3)" ng-change="AccountManagerTab.refreshGraph()")
+      pagination.pagination-sm(total-items='AccountManagerTab.projectYield_hash.index().length' ng-model='AccountManagerTab.currentPage' items-per-page="10" max-size='1' ng-if="AccountManagerTab.filter==='Project Yield' && (AccountManagerTab.status === 2 || AccountManagerTab.status === 3)" ng-change="AccountManagerTab.refreshGraph()")
+      pagination.pagination-sm(total-items='AccountManagerTab.ranking_hash.index().length' ng-model='AccountManagerTab.currentPage' items-per-page="10" max-size='1' ng-if="AccountManagerTab.filter==='AM Rank (# consultations)' && (AccountManagerTab.status === 2 || AccountManagerTab.status === 3)" ng-change="AccountManagerTab.refreshGraph()")
+  //- Researcher Tab
+  .analytic-content
+    h1 Researchers
+    +graph-header('ResearcherTab', 'Researchers')
+    br
+    +monthly-content('ResearcherTab', 'Researchers')
+    +quarterly-content('ResearcherTab', 'Researchers')
+    br
+    //- show graph if Year to date / All Time
+    nvd3(options="ResearcherTab.options" data="ResearcherTab.data" ng-if="ResearcherTab.status === 2 || ResearcherTab.status === 3")
+    .text-center
+      //- Pagination for graphs
+      //- Add more pagination for expert items if items added
+      pagination.pagination-sm(total-items='ResearcherTab.totalProjects_hash.index().length' ng-model='ResearcherTab.currentPage' items-per-page="10" max-size='1' ng-if="ResearcherTab.filter==='Total Projects' && (ResearcherTab.status === 2 || ResearcherTab.status === 3)" ng-change="ResearcherTab.refreshGraph()")
+      pagination.pagination-sm(total-items='ResearcherTab.completedConsultations_hash.index().length' ng-model='ResearcherTab.currentPage' items-per-page="10" max-size='1' ng-if="ResearcherTab.filter==='Completed Consultations' && (ResearcherTab.status === 2 || ResearcherTab.status === 3)" ng-change="ResearcherTab.refreshGraph()")
+      pagination.pagination-sm(total-items='ResearcherTab.projectYield_hash.index().length' ng-model='ResearcherTab.currentPage' items-per-page="10" max-size='1' ng-if="ResearcherTab.filter==='Project Yield' && (ResearcherTab.status === 2 || ResearcherTab.status === 3)" ng-change="ResearcherTab.refreshGraph()")
+      pagination.pagination-sm(total-items='ResearcherTab.ranking_hash.index().length' ng-model='ResearcherTab.currentPage' items-per-page="10" max-size='1' ng-if="ResearcherTab.filter==='Researcher Rank (# consultations)' && (ResearcherTab.status === 2 || ResearcherTab.status === 3)" ng-change="ResearcherTab.refreshGraph()")
+
+  //- Client Tab
+  .analytic-content
+    h1 Clients
+    +graph-header('ClientTab', 'Clients')
+    br
+    +monthly-content('ClientTab', 'Clients')
+    +quarterly-content('ClientTab', 'Clients')
+    br
+    //- show graph if Year to date / All Time
+    nvd3(options="ClientTab.options" data="ClientTab.data" ng-if="ClientTab.status === 2 || ClientTab.status === 3")
+    .text-center
+      //- Pagination for graphs
+      //- Add more pagination for expert items if items added
+      pagination.pagination-sm(total-items='ClientTab.totalProjects_hash.index().length' ng-model='ClientTab.currentPage' items-per-page="10" max-size='1' ng-if="ClientTab.filter==='Total Projects' && (ClientTab.status === 2 || ClientTab.status === 3)" ng-change="ClientTab.refreshGraph()")
+      pagination.pagination-sm(total-items='ClientTab.completedConsultations_hash.index().length' ng-model='ClientTab.currentPage' items-per-page="10" max-size='1' ng-if="ClientTab.filter==='Total Consultations' && (ClientTab.status === 2 || ClientTab.status === 3)" ng-change="ClientTab.refreshGraph()")
+
+  //- Expert Tab
+  .analytic-content
+    h1 Experts
+    +graph-header('ExpertTab', 'Experts')
+    br
+    +monthly-content('ExpertTab', 'Experts')
+    +quarterly-content('ExpertTab', 'Experts')
+    br
+    //- show graph if Year to date / All Time
+    nvd3(options="ExpertTab.options" data="ExpertTab.data" ng-if="ExpertTab.status === 2 || ExpertTab.status === 3")
+    .text-center
+      //- Pagination for graphs
+      //- Add more pagination for expert items if items added
+      pagination.pagination-sm(total-items='ExpertTab.totalProjects_hash.index().length' ng-model='ExpertTab.currentPage' items-per-page="10" max-size='1' ng-if="ExpertTab.filter==='Total Projects' && (ExpertTab.status === 2 || ExpertTab.status === 3)" ng-change="ExpertTab.refreshGraph()")
+      pagination.pagination-sm(total-items='ExpertTab.completedConsultations_hash.index().length' ng-model='ExpertTab.currentPage' items-per-page="10" max-size='1' ng-if="ExpertTab.filter==='Total Consultations' && (ExpertTab.status === 2 || ExpertTab.status === 3)" ng-change="ExpertTab.refreshGraph()")
+  br
+  br
+  br
+

@@ -1,0 +1,27 @@
+mixin consultation-row(consultationStatus, filter)
+  tr.header
+    td(colspan='8') #{consultationStatus}
+  tr(ng-if='consultationsTab.count("#{consultationStatus}") > 0', ng-repeat='consultation in project.consultations|#{filter}:consultation.statusInProject')
+    td
+      input(type='checkbox' ng-model='consultation.selected' ng-click='consultationsTab.select(consultation)')
+    td
+      a(href='/consultation/{{ consultation.objectId }}')
+        | {{ consultation.name }}
+    td {{ consultation.expert.partnerRef || 'N/A' }}
+    td
+      a(href='/expert/object/{{ consultation.expert.objectId }}')
+        | {{ consultation.expert.name }}
+    td {{ consultation.scheduledDate || 'Not Set' | date:'dd MMM, HH:mm' }}
+    td {{ consultation.duration.durationH || '?' }}H {{consultation.duration.durationM  || '?' }}M
+    td {{ consultation.hourlyRate.currency}} {{consultation.hourlyRate.amount  || '?' }}
+    td
+      span.lynk-circle-checkbox(ng-class='{"active": consultation.expert.compliance.tncSignedDate}') 1
+      span.lynk-circle-checkbox(ng-class='{"active": consultation.compliance.stage2.status === "approve" || consultation.compliance.stage2.status === "waive"}') 2
+      span.lynk-circle-checkbox(ng-class='{"active": consultation.compliance.stage3.status === "approve" || consultation.compliance.stage3.status === "waive"}') 3
+      span.lynk-circle-checkbox(ng-class='{"active": consultation.compliance.stage4.status === "approve" || consultation.compliance.stage4.status === "waive"}') 4a
+      span.lynk-circle-checkbox(ng-class='{"active": consultation.compliance.stage5.status === "approve" || consultation.compliance.stage5.status === "waive"}') 4b
+      span.lynk-circle-checkbox(ng-class='{"active": consultation.compliance.stage6.status === "approve" || consultation.compliance.stage6.status === "waive"}') 5
+      span.lynk-circle-checkbox(ng-class='{"active": consultation.compliance.stage7.status === "approve" || consultation.compliance.stage7.status === "waive"}') 6
+  tr(ng-if='consultationsTab.count("#{consultationStatus}") === 0')
+      td.text-center(colspan='8')
+        span No consultations yet

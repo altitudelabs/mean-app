@@ -1,0 +1,48 @@
+.analytic-content{
+  background-color: #fff;
+  border: 1px solid #d4d4d3;
+  padding: 20px;
+  margin-bottom: 20px;
+
+  .ui-select-container{
+    width: 200px;
+  }
+  .dropdown-menu-archived{
+    min-width: 200px;
+    max-width: 300px;
+  }
+  .table-analytics {
+    text-align: center;
+    color: $brand-primary;
+    tr:last-child {
+      border-bottom: 1px solid $gray-light;
+    }
+    th {
+      text-align: center;
+      font-size: 12px;
+      color: $gray-medium;
+      letter-spacing: 1px;
+      font-weight: normal;
+      border: 1px solid $gray-light;
+
+      &:first-child {
+        text-align: left;
+        padding-left: 5px;
+      }
+    }
+    td{
+      border-left: 1px solid $gray-light;
+      border-right: 1px solid $gray-light;
+      padding: 5px 5px;
+      &:first-child {
+        text-align: left;
+        font-size: 12px;
+        color: $gray-medium;
+        letter-spacing: 1px;
+        font-weight: 300;
+        padding-left: 5px;
+      }
+    }
+
+  }
+}

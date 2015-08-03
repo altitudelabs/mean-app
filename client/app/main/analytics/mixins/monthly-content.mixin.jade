@@ -1,0 +1,107 @@
+mixin monthly-content(tabLabel, targetLabel)
+  //- show table if Monthly
+  div(ng-if="#{tabLabel}.status === 0")
+    table.table-fixed-width.table-analytics
+      tr
+        th.px-150 #{targetLabel}
+        th Jan
+        th Feb
+        th Mar
+        th Apr
+        th May
+        th Jun
+        th Jul
+        th Aug
+        th Sep
+        th Oct
+        th Nov
+        th Dec
+      tr(ng-repeat="am in #{tabLabel}.totalProjects_hash.index() | startFrom: ((#{tabLabel}.currentPage -1) * 10) | limitTo: 10" ng-if="#{tabLabel}.filter==='Total Projects'")
+        td {{am.name}}
+        td {{am.JAN}}
+        td {{am.FEB}}
+        td {{am.MAR}}
+        td {{am.APR}}
+        td {{am.MAY}}
+        td {{am.JUN}}
+        td {{am.JUL}}
+        td {{am.AUG}}
+        td {{am.SEP}}
+        td {{am.OCT}}
+        td {{am.NOV}}
+        td {{am.DEC}}
+      tr(ng-repeat="am in #{tabLabel}.completedConsultations_hash.index() | startFrom: ((#{tabLabel}.currentPage -1) * 10) | limitTo: 10" ng-if="#{tabLabel}.filter==='Completed Consultations' || #{tabLabel}.filter==='Total Consultations'")
+        td {{am.name}}
+        td {{am.JAN}}
+        td {{am.FEB}}
+        td {{am.MAR}}
+        td {{am.APR}}
+        td {{am.MAY}}
+        td {{am.JUN}}
+        td {{am.JUL}}
+        td {{am.AUG}}
+        td {{am.SEP}}
+        td {{am.OCT}}
+        td {{am.NOV}}
+        td {{am.DEC}}
+      tr(ng-repeat="am in #{tabLabel}.projectYield_hash.index() | startFrom: ((#{tabLabel}.currentPage -1) * 10) | limitTo: 10" ng-if="#{tabLabel}.filter==='Project Yield'")
+        td {{am.name}}
+        td {{am.JAN | number}}
+        td {{am.FEB | number}}
+        td {{am.MAR | number}}
+        td {{am.APR | number}}
+        td {{am.MAY | number}}
+        td {{am.JUN | number}}
+        td {{am.JUL | number}}
+        td {{am.AUG | number}}
+        td {{am.SEP | number}}
+        td {{am.OCT | number}}
+        td {{am.NOV | number}}
+        td {{am.DEC | number}}
+      tr(ng-repeat="am in #{tabLabel}.ranking_hash.index() | orderBy:currentMonthText:true | startFrom: ((#{tabLabel}.currentPage -1) * 10) | limitTo: 10" ng-if="#{tabLabel}.filter==='Researcher Rank (# consultations)' || #{tabLabel}.filter==='AM Rank (# consultations)'")
+        td {{am.name}}
+        td {{am.JAN}}
+        td {{am.FEB}}
+        td {{am.MAR}}
+        td {{am.APR}}
+        td {{am.MAY}}
+        td {{am.JUN}}
+        td {{am.JUL}}
+        td {{am.AUG}}
+        td {{am.SEP}}
+        td {{am.OCT}}
+        td {{am.NOV}}
+        td {{am.DEC}}
+      tr(ng-repeat="am in #{tabLabel}.top10Clients_hash.index() | orderBy:currentMonthText:true" ng-if="#{tabLabel}.filter==='Top 10 Clients'" )
+        td {{am.name}}
+        td {{am.JAN}}
+        td {{am.FEB}}
+        td {{am.MAR}}
+        td {{am.APR}}
+        td {{am.MAY}}
+        td {{am.JUN}}
+        td {{am.JUL}}
+        td {{am.AUG}}
+        td {{am.SEP}}
+        td {{am.OCT}}
+        td {{am.NOV}}
+        td {{am.DEC}}
+      tr(ng-repeat="am in #{tabLabel}.top10Experts_hash.index() | orderBy:currentMonthText:true" ng-if="#{tabLabel}.filter==='Top 10 Experts'" )
+        td {{am.name}}
+        td {{am.JAN}}
+        td {{am.FEB}}
+        td {{am.MAR}}
+        td {{am.APR}}
+        td {{am.MAY}}
+        td {{am.JUN}}
+        td {{am.JUL}}
+        td {{am.AUG}}
+        td {{am.SEP}}
+        td {{am.OCT}}
+        td {{am.NOV}}
+        td {{am.DEC}}
+    .text-center
+      pagination.pagination-sm(total-items='#{tabLabel}.totalProjects_hash.index().length' ng-model='#{tabLabel}.currentPage' items-per-page="10" max-size='1' ng-if="#{tabLabel}.filter==='Total Projects'")
+      pagination.pagination-sm(total-items='#{tabLabel}.completedConsultations_hash.index().length' ng-model='#{tabLabel}.currentPage' items-per-page="10" max-size='1' ng-if="#{tabLabel}.filter==='Completed Consultations'")
+      pagination.pagination-sm(total-items='#{tabLabel}.projectYield_hash.index().length' ng-model='#{tabLabel}.currentPage' items-per-page="10" max-size='1' ng-if="#{tabLabel}.filter==='Project Yield'")
+      pagination.pagination-sm(total-items='#{tabLabel}.ranking_hash.index().length' ng-model='#{tabLabel}.currentPage' items-per-page="10" max-size='1' ng-if="#{tabLabel}.filter==='Researcher Rank (# consultations)' || #{tabLabel}.filter==='AM Rank (# consultations)'")

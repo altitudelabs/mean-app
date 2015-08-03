@@ -1,0 +1,106 @@
+div(ng-include='"components/navbar/navbar.html"')
+div(ng-include='"components/sidebar/sidebar.html"')
+
+.content-pane
+  div(ng-show='loading').lynk-loading-spinner-holder
+    div.lynk-loading-spinner
+      img(src='assets/images/loader.gif')
+  header
+    h1 Projects
+  .toolbar.clearfix
+    .pull-left
+      div.btn-group.right-spacer(data-toggle='buttons')
+        label.btn.btn-light(ng-class='{active:queryModeOr==true}' ng-click='setQueryOr(true)')
+          input(type='radio')
+          | Any
+        label.btn.btn-light(ng-class='{active:queryModeOr==false}' ng-click='setQueryOr(false)')
+          input(type='radio')
+          | All
+      input.form-control.search.right-spacer(type='text', ng-model='searchQuery', focus-me="focusInput", placeholder='Find projects...')
+
+      span.dropdown(dropdown='', on-toggle='toggled(open)')
+        a.dropdown-toggle(href='', dropdown-toggle='')
+          button.btn.btn-light.btn-status.right-spacer.btn-status-project
+            | {{ mine }}
+            i.lynk-align-top.fa.fa-sort-desc
+        ul.options-nav.dropdown-menu.dropdown-carat.dropdown-menu-left.dropdown-menu-thin.dropdown-menu-project
+          li
+            a(ng-click='setMine("My Projects")') My Projects
+          li
+            a(ng-click='setMine("All Projects")') All Projects
+      span.dropdown.right-spacer(dropdown='', on-toggle='toggled(open)')
+        a.dropdown-toggle(href='', dropdown-toggle='')
+          button.btn.btn-light.btn-status.btn-status-archived(type="button")
+            | {{ viewing }}
+            i.lynk-align-top.fa.fa-sort-desc
+        ul.options-nav.dropdown-menu.dropdown-carat.dropdown-menu-right.dropdown-menu-thin.dropdown-menu-archived
+          li
+            a(ng-click='setViewing("Active")') Active
+          li
+            a(ng-click='setViewing("Archived")') Archived
+
+      span.edit-panel(ng-if='editMode')
+        //- button.btn.btn-light.right-spacer
+        //-   | On Hold
+        //-   i.lynk-align-top.fa.fa-sort-desc
+        button.btn.btn-light.right-spacer(ng-click='archiveProject()')
+          span.lynk.lynk-inline.lynk-archive.lynk-valign-button
+          | Archive
+        button.btn.btn-light(ng-show='isAdmin()', ng-click='confirmDelete()')
+          span.lynk.lynk-inline.lynk-delete.lynk-valign-button
+          | Delete
+
+    .pull-right
+      button.btn.btn-primary(ng-click='open()')
+        span.lynk.lynk-inline.lynk-add-white
+        | New Project
+
+
+
+  table.table.table-lynk.table-fixed-width
+    thead
+      th.px-30
+        input(type='checkbox' ng-model='selectAllState' ng-click='selectAllProjects()')
+      th.px-70(ng-click="orderByField='status'; reverseSort = !reverseSort") Status
+        i.lynk-align-top.fa.fa-sort-desc
+      th.px-100(ng-click="orderByField='caseCode'; reverseSort = !reverseSort") Case Code
+        i.lynk-align-top.fa.fa-sort-desc
+      th.px-100(ng-click="orderByField='startDate'; reverseSort = !reverseSort") Start Date
+        i.lynk-align-top.fa.fa-sort-desc
+      th.pc-20(ng-click="orderByField='name'; reverseSort = !reverseSort") Name
+        i.lynk-align-top.fa.fa-sort-desc
+      th.px-80(ng-click="orderByField='region[0].display'; reverseSort = !reverseSort") Region
+        i.lynk-align-top.fa.fa-sort-desc
+      th.px-80(ng-click="orderByField='industries[0].display'; reverseSort = !reverseSort") Industry
+        i.lynk-align-top.fa.fa-sort-desc
+      th(ng-click="orderByField='account[0].name'; reverseSort = !reverseSort") Account
+        i.lynk-align-top.fa.fa-sort-desc
+      th(ng-click="orderByField='clients[0].name'; reverseSort = !reverseSort") Client
+        i.lynk-align-top.fa.fa-sort-desc
+      //- th.px-70(ng-click="orderByField=''; reverseSort = !reverseSort") Inactive
+      //-   i.lynk-align-top.fa.fa-sort-desc
+      th(ng-click="inactive(); reverseSort = !reverseSort") Inactive (days)
+        i.lynk-align-top.fa.fa-sort-desc
+      th(ng-click="orderByField='manager[0]'; reverseSort = !reverseSort") Manager
+        i.lynk-align-top.fa.fa-sort-desc
+    tbody
+      tr(ng-repeat='project in projects|projectListFilter:searchQuery:queryModeOr|orderBy:orderByField:reverseSort')
+        td
+          input(type='checkbox' ng-model='project.selected' ng-click='selectProject(project)')
+        td {{ project.status }}
+        td {{ project.caseCode }}
+        td {{ project.startDate | date:'d MMM yyyy' }}
+        td.name
+          a(href='/project/{{ project._id }}')
+            | {{ project.name }}
+        td {{ project.region[0].display }}
+        td {{ project.industries[0].display }}
+        td {{ project.account[0].name }}
+        td {{ project.clients[0].name }}
+        td {{ project.clients[0].parsed['Inactive (days)'] || 'N/A' }}
+        td {{ project.manager.name || 'Not set'}}
+
+      tr(ng-if='projects.length === 0')
+        td.text-center(colspan='10')
+          span No project found
+

@@ -1,0 +1,51 @@
+div(ng-include='"components/navbar/navbar.html"')
+div(ng-include='"components/sidebar/sidebar.html"')
+.content-pane
+  h1 Admin Panel
+
+  tabset
+    tab(heading='Users')
+      br
+      table.table.table-lynk
+        thead
+          th
+          th Email
+          th Name
+          th Role
+          th
+        tbody
+          tr(ng-repeat='user in users')
+            td
+              input(type='checkbox')
+            td {{user.email}}
+            td {{user.name}}
+            td
+              a(href='#' editable-select='user.role' onbeforesave='changeRole(user, $data)' e-ng-options='s.value as s.text for s in statuses') {{ user.role || 'empty' }}
+            td
+              a(ng-click='delete(user)')
+                span.glyphicon.glyphicon-trash.pull-right
+
+    tab(heading='Client Accounts')
+      br
+      table.table.table-lynk
+        thead
+          th
+            | &nbsp;
+          th(ng-click="orderByField='name'; reverseSort = !reverseSort") Name
+            i.lynk-align-top.fa.fa-sort-desc
+          th(ng-click="orderByField='contactIds.length'; reverseSort = !reverseSort") No. Contacts
+            i.lynk-align-top.fa.fa-sort-desc
+          th
+
+        tbody
+          tr(ng-repeat='account in accounts|orderBy:orderByField:reverseSort')
+            td
+              input(type='checkbox' ng-model='account.selected' ng-click='selectAccount(account)')
+
+            td {{ account.name }}
+            td {{ account.contactIds.length }}
+            td
+              a(ng-click='delete(account)')
+                span.glyphicon.glyphicon-trash.pull-right
+  br
+  br

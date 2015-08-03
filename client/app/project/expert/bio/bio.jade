@@ -1,0 +1,24 @@
+.modal-header
+  h3 Expert Bio
+.modal-body
+
+  .form-group
+    label.label-full-width Company
+      input.form-control(type='text', name='company', placeholder='Company', ng-model='expert.company')
+  .form-group
+    label.label-full-width Country
+      tags-input(name='country', ng-model='expert.country', key-property='objectId', display-property='display', replace-spaces-with-dashes='false', add-from-autocomplete-only='true', placeholder='Type to add a country')
+          auto-complete(source='lookupRegion($query)', min-length='1')
+  .form-group
+    label.label-full-width Employment History
+      textarea.form-control(msd-elastic, ng-model='expert.history')
+  .form-group
+    label.label-full-width Relevant Experience
+      textarea.form-control(msd-elastic, ng-model='expert.experience')
+  .form-group
+    label.label-full-width General Notes (from RelateIQ)
+      .pre {{ expert.bio || 'N/A' }}
+
+.modal-footer
+  button.btn.btn-primary.pull-right(ng-click='ok()') Save
+  button.btn.btn-light.right-spacer.pull-right(ng-click='cancel()') Cancel

@@ -1,0 +1,13 @@
+.modal-header
+  h3 Edit Office
+.modal-body
+  .form-group
+    label Office Country
+      span.required *
+    ui-select(ng-model='project.originatingOffice' theme='bootstrap')
+      ui-select-match(placeholder="Select Originating Office") {{$select.selected.display}}
+      ui-select-choices(repeat="country in countries | filter: $select.search")
+        div(ng-bind-html='country.display | highlight: $select.search')
+.modal-footer
+  button.btn.btn-primary.pull-right(ng-click='ok()') Save
+  button.btn.btn-light.right-spacer.pull-right(ng-click='cancel()') Cancel

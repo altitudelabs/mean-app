@@ -1,0 +1,53 @@
+.dropdown {
+  h1 {
+    margin-bottom: 5px;
+
+    i {
+      font-size: 18px;
+    }
+  }
+
+  i {
+    font-size: 12px;
+  }
+}
+
+.indicator {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  margin-top: -3px;
+  width: 6px;
+  height: 6px;
+  border-radius: 3px;
+
+  &.indicator-active { background-color: $brand-success; }
+  &.indicator-onhold { background-color: $brand-warning; }
+  &.indicator-closed { background-color: $brand-danger; }
+  &.indicator-archived { background-color: $gray-light; }
+}
+
+.account-pane {
+  margin-left: -1px;
+  border-left: 1px solid $gray-light;
+
+  .account-header {
+    margin-bottom: 5px;
+  }
+
+  .account-detail {
+    padding-bottom: 2px;
+  }
+}
+
+.client-profile {
+  margin-bottom: 10px;
+
+  .client-name {
+    font-weight: 400;
+  }
+
+  .client-detail {
+    font-size: 13px;
+  }
+}

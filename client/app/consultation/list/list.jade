@@ -1,0 +1,98 @@
+div(ng-include='"components/navbar/navbar.html"')
+div(ng-include='"components/sidebar/sidebar.html"')
+
+.content-pane
+  div(ng-show='loading').lynk-loading-spinner-holder
+    div.lynk-loading-spinner
+      img(src='assets/images/loader.gif')
+  header
+    h1 Consultations
+  .toolbar.clearfix
+    .pull-left
+      div.btn-group.right-spacer(data-toggle='buttons')
+        label.btn.btn-light(ng-class='{active:queryModeOr==true}' ng-click='setQueryOr(true)')
+          input(type='radio')
+          | Any
+        label.btn.btn-light(ng-class='{active:queryModeOr==false}' ng-click='setQueryOr(false)')
+          input(type='radio')
+          | All
+      input.form-control.search.right-spacer(type='text', ng-model='searchQuery', focus-me="focusInput", placeholder='Find consultations...')
+
+      span.dropdown(dropdown='', on-toggle='toggled(open)', ng-hide='true')
+        a.dropdown-toggle(href='', dropdown-toggle='')
+          button.btn.btn-light.btn-status.right-spacer
+            | {{ mine }}
+            i.lynk-align-top.fa.fa-sort-desc
+        ul.options-nav.dropdown-menu.dropdown-carat.dropdown-menu-left.dropdown-menu-thin
+          li
+            a(ng-click='setMine("My Projects")') My Projects
+          li
+            a(ng-click='setMine("All Projects")') All Projects
+
+      span.edit-panel(ng-show='editMode')
+        button.btn.btn-light(ng-show='isAdmin()', ng-click='delete()')
+          span.lynk.lynk-inline.lynk-delete.lynk-valign-button
+          | Delete
+        //- button.btn.btn-light.right-spacer
+        //-   | On Hold
+        //-   i.lynk-align-top.fa.fa-sort-desc
+
+
+
+  table.table.table-lynk.table-fixed-width
+    thead
+      th.px-30
+        input(type='checkbox' ng-model='selectAllState' ng-click='selectAll()')
+      th.px-70(ng-click="orderByField='consultationRef'; reverseSort = !reverseSort") Ref #
+        i.lynk-align-top.fa.fa-sort-desc
+      th.px-120(ng-click="orderByField='name'; reverseSort = !reverseSort") Title
+        i.lynk-align-top.fa.fa-sort-desc
+      th.px-120(ng-click="orderByField='project.name'; reverseSort = !reverseSort") Project
+        i.lynk-align-top.fa.fa-sort-desc
+      th(ng-click="orderByField='clients[0].name'; reverseSort = !reverseSort") Client
+        i.lynk-align-top.fa.fa-sort-desc
+      th(ng-click="orderByField='expert.name'; reverseSort = !reverseSort") Expert
+        i.lynk-align-top.fa.fa-sort-desc
+      th.px-100(ng-click="orderByField='hourlyRate'; reverseSort = !reverseSort") Rate
+        i.lynk-align-top.fa.fa-sort-desc
+      th.px-100(ng-click="orderByField='scheduledDate'; reverseSort = !reverseSort") Time
+        i.lynk-align-top.fa.fa-sort-desc
+      th.px-80(ng-click="orderByField='duration.durationH*60 + duration.durationM'; reverseSort = !reverseSort") Duration
+        i.lynk-align-top.fa.fa-sort-desc
+      th.px-200(ng-click="orderByField=''; reverseSort = !reverseSort") Compliance
+        i.lynk-align-top.fa.fa-sort-desc
+    tbody
+      tr(ng-if='consultations.length > 0', ng-repeat='consultation in consultations|consultationListFilter:searchQuery:queryModeOr|orderBy:orderByField:reverseSort')
+        td
+          input(type='checkbox' ng-model='consultation.selected' ng-click='select(consultation)')
+        td
+          a(href='/consultation/{{ consultation.objectId }}')
+            | {{ consultation.consultationRef || 'N/A'}}
+        td
+          a(href='/consultation/{{ consultation.objectId }}')
+            | {{ consultation.name }}
+        td.name
+          a(href='/project/{{ consultation.project._id }}')
+            | {{ consultation.project.name }}
+        td {{ consultation.clients[0].name }}
+        td
+          a(href='/expert/object/{{ consultation.expert.objectId }}')
+            | {{ consultation.expert.name }}
+        td {{ consultation.hourlyRate.currency}} {{consultation.hourlyRate.amount || 'N/A'}}
+        td {{ consultation.scheduledDate || 'N/A' | date:'d MMM yyyy' }}
+        td
+          span(ng-if='consultation.duration') {{consultation.duration.durationH}}H {{consultation.duration.durationM}}M
+          span(ng-if='!consultation.duration') N/A
+        td
+          span.lynk-circle-checkbox(ng-class='{"active": consultation.expert.compliance.tncSignedDate}') 1
+          span.lynk-circle-checkbox(ng-class='{"active": consultation.compliance.stage2.status === "approve" || consultation.compliance.stage2.status === "waive"}') 2
+          span.lynk-circle-checkbox(ng-class='{"active": consultation.compliance.stage3.status === "approve" || consultation.compliance.stage3.status === "waive"}') 3
+          span.lynk-circle-checkbox(ng-class='{"active": consultation.compliance.stage4.status === "approve" || consultation.compliance.stage4.status === "waive"}') 4a
+          span.lynk-circle-checkbox(ng-class='{"active": consultation.compliance.stage5.status === "approve" || consultation.compliance.stage5.status === "waive"}') 4b
+          span.lynk-circle-checkbox(ng-class='{"active": consultation.compliance.stage6.status === "approve" || consultation.compliance.stage6.status === "waive"}') 5
+          span.lynk-circle-checkbox(ng-class='{"active": consultation.compliance.stage7.status === "approve" || consultation.compliance.stage7.status === "waive"}') 6
+      tr(ng-if='consultations.length === 0')
+        td.text-center(colspan='10')
+          span No consultation yet
+
+

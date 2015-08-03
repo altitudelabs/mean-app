@@ -1,0 +1,49 @@
+.modal-header
+  h3 Add Consultation
+.modal-body
+  form.form(name='form', ng-submit='ok(form)', novalidate='')
+    .form-group(ng-class='{ "has-success": form.name.$valid && submitted,\
+      "has-error": form.name.$invalid && submitted }')
+      label.label-full-width Consultation Title
+        span.required *
+        input.form-control(ng-model='thisCon.name', type='text', name='name', placeholder='Describe the consultation', required='')
+    .form-group(ng-class='{ "has-success": form.expert.$valid && submitted,\
+      "has-error": form.expert.$invalid && submitted }')
+      label.label-full-width Expert Attendee
+        span.required *
+        ui-select(ng-model='thisCon.expert', theme='bootstrap', ng-disabled='disabled', reset-search-input='false', name='expert', required)
+          ui-select-match(placeholder='Find expert...') {{ $select.selected.name }}
+          ui-select-choices(repeat='expert in lookupExpert($select.search)')
+            .ui-select-choice(ng-bind-html='expert.name | highlight: $select.search')
+    .form-group(ng-if="thisCon.expert")
+      label.label-full-width Temporary Compliance
+        ui-select(ng-model='thisCon.compliance' theme='bootstrap' reset-search-input='false' name='compliance')
+          ui-select-match(allow-clear="true" placeholder='Select Temporary compliance of expert if applicable or null')
+            span.right-spacer-big {{$select.selected.referenceId}}
+            span.lynk-circle-checkbox(ng-class='{"active": $select.selected.tncSignedDate}') 1
+            span.lynk-circle-checkbox(ng-class='{"active": $select.selected.stage2.status === "approve" || $select.selected.stage2.status === "waive"}') 2
+            span.lynk-circle-checkbox(ng-class='{"active": $select.selected.stage3.status === "approve" || $select.selected.stage3.status === "waive"}') 3
+            span.lynk-circle-checkbox(ng-class='{"active": $select.selected.stage4.status === "approve" || $select.selected.stage4.status === "waive"}') 4a
+            span.lynk-circle-checkbox(ng-class='{"active": $select.selected.stage5.status === "approve" || $select.selected.stage5.status === "waive"}') 4b
+            span.lynk-circle-checkbox(ng-class='{"active": $select.selected.stage6.status === "approve" || $select.selected.stage6.status === "waive"}') 5
+            span.lynk-circle-checkbox(ng-class='{"active": $select.selected.stage7.status === "approve" || $select.selected.stage7.status === "waive"}') 6
+          ui-select-choices(repeat='compliance in thisCon.expert.projectCompliance | propsFilter: {referenceId: $select.search, notes: $select.search} | projectFilter: project._id' null-label="No compliance")
+            .ui-select-choices Reference #: {{compliance.referenceId}}
+            div
+              span Notes: {{compliance.notes}}
+            small
+              span.lynk-circle-checkbox(ng-class='{"active": compliance.tncSignedDate}') 1
+              span.lynk-circle-checkbox(ng-class='{"active": compliance.stage2.status === "approve" || compliance.stage2.status === "waive"}') 2
+              span.lynk-circle-checkbox(ng-class='{"active": compliance.stage3.status === "approve" || compliance.stage3.status === "waive"}') 3
+              span.lynk-circle-checkbox(ng-class='{"active": compliance.stage4.status === "approve" || compliance.stage4.status === "waive"}') 4a
+              span.lynk-circle-checkbox(ng-class='{"active": compliance.stage5.status === "approve" || compliance.stage5.status === "waive"}') 4b
+              span.lynk-circle-checkbox(ng-class='{"active": compliance.stage6.status === "approve" || compliance.stage6.status === "waive"}') 5
+              span.lynk-circle-checkbox(ng-class='{"active": compliance.stage7.status === "approve" || compliance.stage7.status === "waive"}') 6
+    .form-group
+      label.label-full-width Client Attendees
+        span.required *
+        tags-input(key-property='objectId', display-property='name', ng-model='thisCon.clients', replace-spaces-with-dashes='false', add-from-autocomplete-only='true', placeholder='Type to add client attendees')
+          auto-complete(source='lookupClient($query)', load-on-empty='true', add-on-space="false", add-on-comma="false", add-on-blur="false", add-on-paste="false",  min-length='1', debounce-delay='500')
+    .modal-footer
+      button.btn.btn-primary.pull-right(type='submit') Add Consultation
+      button.btn.btn-light.right-spacer.pull-right(ng-click='cancel()') Cancel

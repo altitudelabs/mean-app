@@ -1,0 +1,9 @@
+.DS_Store
+node_modules
+.tmp
+.sass-cache
+.idea
+client/bower_components
+/server/config/local.env.js
+_bitnami
+dist

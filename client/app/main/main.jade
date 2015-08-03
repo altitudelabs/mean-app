@@ -1,0 +1,90 @@
+div(ng-include='"components/navbar/navbar.html"')
+div(ng-include='"components/sidebar/sidebar.html"')
+
+.content-pane
+  //- Global stats header
+  h1 Global Stats
+    div.pull-right
+      h6
+        span.clickable(ng-click="globalTab.select(0)" ng-class="{active: globalTab.status===0}") This Month
+        span &nbsp;|&nbsp;
+        span.clickable(ng-click="globalTab.select(1)" ng-class="{active: globalTab.status===1}") This Quarter
+        span &nbsp;|&nbsp;
+        span.clickable(ng-click="globalTab.select(2)" ng-class="{active: globalTab.status===2}") Year To Date
+        span &nbsp;|&nbsp;
+        span.clickable(ng-click="globalTab.select(3)" ng-class="{active: globalTab.status===3}") All Time
+  //- Global stats table
+  .table-container
+    table.table-grid.table-fixed-width
+      tr
+        td
+          a(href='/analytics')
+            h5 Total Projects
+            h2 {{globalTab.totalProjects}}
+        td
+          a(href='/analytics')
+            h5 Completed Consultations
+            h2 {{globalTab.completedConsultations}}
+        td
+          a(href='/analytics')
+            h5 Cancelled Consultations
+            h2 {{globalTab.cancelledConsultations}}
+        td
+          a(href='/analytics')
+            h5 Project Yield
+            h2 {{globalTab.projectYield | number}}
+      tr
+        td
+          a(href='/analytics')
+            h5 Revenue
+            h2 N/A
+        td
+          a(href='/analytics')
+            h5 Response time
+            h2 {{globalTab.responseTime || 'N/A'}}
+        td
+          a(href='/analytics')
+            h5 First Profiles Sent
+            h2 {{globalTab.firstProfileSent}} hours
+  br
+  //- My stats header
+  h1 My Stats
+    div.pull-right
+      h6
+        span.clickable(ng-click="selfTab.select(0)" ng-class="{active: selfTab.status===0}") This Month
+        span &nbsp;|&nbsp;
+        span.clickable(ng-click="selfTab.select(1)" ng-class="{active: selfTab.status===1}") This Quarter
+        span &nbsp;|&nbsp;
+        span.clickable(ng-click="selfTab.select(2)" ng-class="{active: selfTab.status===2}") Year To Date
+        span &nbsp;|&nbsp;
+        span.clickable(ng-click="selfTab.select(3)" ng-class="{active: selfTab.status===3}") All Time
+  //- My stats table
+  .table-container
+    table.table-grid.table-fixed-width
+      tr
+        td
+          h5 Total Projects
+          h2 {{selfTab.totalProjects}}
+        td
+          h5 Completed Consultations
+          h2 {{selfTab.completedConsultations}}
+        td
+          h5 Cancelled Consultations
+          h2 {{selfTab.cancelledConsultations}}
+        td
+          h5 Project Yield
+          h2 {{selfTab.projectYield | number}}
+      tr
+        td
+          h5 Revenue
+          h2 N/A
+        td
+          h5 Response time
+          h2 {{selfTab.responseTime || 'N/A'}}
+        td
+          h5 First Profiles Sent
+          h2 {{selfTab.firstProfileSent}} hours
+        td
+          h5 Ranking
+          h2 {{selfTab.ranking + 1}}
+

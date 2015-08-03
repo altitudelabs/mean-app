@@ -1,0 +1,77 @@
+div(ng-include='"components/navbar/navbar.html"')
+div(ng-include='"components/sidebar/sidebar.html"')
+
+.content-pane
+  div(ng-show='loading').lynk-loading-spinner-holder
+    div.lynk-loading-spinner
+      img(src='assets/images/loader.gif')
+  header
+    .dropdown(dropdown='', on-toggle='toggled(open)')
+      a.dropdown-toggle(href='', dropdown-toggle='')
+        h1 Experts
+          .pull-right.btn-expert {{ totalExperts }} Experts
+          //- i.lynk-align-text-top.fa.fa-sort-desc
+      //- ul.nav.dropdown-menu.dropdown-menu-left.dropdown-carat.dropdown-menu-thin
+      //-   li
+      //-     a(ng-click='') Sync with RelateIQ
+  .toolbar.clearfix
+    .dropdown.pull-left(dropdown='', on-toggle='toggled(open)')
+      //- button.dropdown-toggle.btn.btn-white.right-spacer(href='', dropdown-toggle='')
+      //-   input.btn-dropdown(type='checkbox' id='experts-select-all-toggle' ng-model='expertsTab.selectAllState' ng-click='expertsTab.selectAll($event)')
+      //-   i.lynk-align-top.fa.fa-sort-desc
+
+      //- ul.nav.dropdown-menu.dropdown-carat.dropdown-menu-left.dropdown-menu-thin
+      //-   li
+      //-     a(ng-click='') Status 1
+      //-   li
+      //-     a(ng-click='') Status 2
+    .input-group
+      input.form-control.search.right-spacer(type='text', ng-model='searchQuery.name', focus-me="focusInput", placeholder='Find experts by name...', ng-change='pageChanged()', ng-model-options="{ debounce: 500 }")
+      input.form-control.search.right-spacer(type='text', ng-model='searchQuery.company', placeholder='by company...', ng-change='pageChanged()', ng-model-options="{ debounce: 500 }")
+      input.form-control.search.right-spacer(type='text', ng-model='searchQuery.location', placeholder='by location...', ng-change='pageChanged()', ng-model-options="{ debounce: 500 }")
+      input.form-control.search.right-spacer(type='text', ng-model='searchQuery.progressStatus', placeholder='by status...', ng-change='pageChanged()', ng-model-options="{ debounce: 500 }")
+      div.btn.btn-light.right-spacer(ng-click='clear()') Clear
+      div.btn-group.right-spacer(data-toggle='buttons')
+        label.btn.btn-light(ng-class='{active:searchQuery.queryModeOr==true}' ng-click='setQueryOr(true)')
+          input(type='radio')
+          | Any
+        label.btn.btn-light(ng-class='{active:searchQuery.queryModeOr==false}' ng-click='setQueryOr(false)')
+          input(type='radio')
+          | All
+    //- .pull-right
+    //-   button.btn.btn-primary(ng-click='open()')
+    //-     span.lynk.lynk-inline.lynk-add-white
+    //-     | Add Expert
+
+
+  table.table.table-lynk.table-fixed-width
+    thead
+      //- th.px-30
+      //-   input(type='checkbox' ng-model='selectAllState' ng-click='selectAllProjects()')
+      th.pc-20(ng-click="orderByField='name'; setOrder(); pageChanged()") Name
+        i.lynk-align-top.fa.fa-sort-desc
+      th.pc-15(ng-click="orderByField='company'; setOrder(); pageChanged()") Company
+        i.lynk-align-top.fa.fa-sort-desc
+      th.pc-15(ng-click="orderByField='location'; setOrder(); pageChanged()") Location
+        i.lynk-align-top.fa.fa-sort-desc
+      th(ng-click="orderByField='progressStatus'; setOrder(); pageChanged()") Status
+        i.lynk-align-top.fa.fa-sort-desc
+      th.pc-15(ng-click="orderByField='knowledgePartner'; setOrder(); pageChanged()") Type
+        i.lynk-align-top.fa.fa-sort-desc
+    tbody
+      //-tr(ng-repeat='expert in experts | filter: filter | orderBy:orderByField:reverseSort')
+      //-tr(dir-paginate="expert in experts | expertListFilter:searchQuery:queryModeOr | itemsPerPage: perPage" total-items="totalExperts" current-page="currentPage")
+      tr(ng-repeat='expert in experts')
+        td.name
+          a(href='/expert/{{ expert._id }}')
+            | {{ expert.name }}
+        td {{ expert.company || 'N/A'}}
+        td {{ expert.location || 'N/A' }}
+        td {{ expert.progressStatus || 'N/A' }}
+        td {{ expert.knowledgePartner || 'N/A' }}
+      tr(ng-if='experts.length === 0')
+        td.text-center(colspan='10')
+          span No experts found
+  div.text-center
+    //-dir-pagination-controls(on-page-change="pageChanged(newPageNumber)")
+    pagination.pagination-sm(total-items='totalExperts', ng-model='currentPage', items-per-page='perPage', max-size='10', boundary-links='true', rotate='false' num-pages='totalPages')

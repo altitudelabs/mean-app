@@ -1,0 +1,111 @@
+div(ng-include='"components/navbar/navbar.html"')
+div(ng-include='"components/sidebar/sidebar.html"')
+
+.content-pane.expert-detail-overview-tab
+  div(ng-show='loading').lynk-loading-spinner-holder
+    div.lynk-loading-spinner
+      img(src='assets/images/loader.gif')
+  header.clearfix
+    .header-short
+      .dropdown(dropdown='', on-toggle='toggled(open)')
+        a.dropdown-toggle(href='', dropdown-toggle='')
+          h1 {{ account.name }}
+
+
+  tabset
+    tab(heading='Overview')
+      .col-md-8.left-column
+        .col-md-6
+          h4 Type
+          | {{ account.parsed['Type'] || 'N/A' }}
+        .col-md-6
+          h4 Location
+          | {{ account.parsed['Location'] || 'N/A' }}
+        .clearfix
+        .col-md-6
+          h4 Primary contact
+          .account-detail
+            .lynk.lynk-inline.account-profile
+            span(ng-if='primaryContact.properties.name[0].value') {{ primaryContact.properties.name[0].value }}
+            span(ng-if='!primaryContact.properties.name[0].value') N/A
+          .account-detail
+            .lynk.lynk-inline.account-mail
+            span(ng-if='primaryContact.properties.email[0].value') {{ primaryContact.properties.email[0].value }}
+            span(ng-if='!primaryContact.properties.email[0].value') N/A
+          .account-detail
+            .lynk.lynk-inline.account-phone
+            span(ng-if='primaryContact.properties.phone[0].value') {{ primaryContact.properties.phone[0].value }}
+            span(ng-if='!primaryContact.properties.phone[0].value') N/A
+        .clearfix
+          br
+          br
+        .clearfix
+      .account-pane.col-md-4
+        .col-md-12
+          h4.account-header Account Manager
+          .client-profile
+            .client-name {{accountManager.name || 'N/A'}}
+            .client-detail {{accountManager.email || 'N/A'}}
+        .col-md-12
+          h4.account-header Back-up
+          .client-profile
+            .client-name {{backup.name || 'N/A'}}
+            .client-detail {{backup.email || 'N/A'}}
+      .clearfix
+
+    tab(heading='Compliance')
+      .col-md-12
+        h4 Compliance Contact
+        .account-detail
+            .lynk.lynk-inline.account-profile
+            span(ng-if='complianceContact.properties.name[0].value') {{ complianceContact.properties.name[0].value }}
+            span(ng-if='!complianceContact.properties.name[0].value') N/A
+          .account-detail
+            .lynk.lynk-inline.account-mail
+            span(ng-if='complianceContact.properties.email[0].value') {{ complianceContact.properties.email[0].value }}
+            span(ng-if='!complianceContact.properties.email[0].value') N/A
+          .account-detail
+            .lynk.lynk-inline.account-phone
+            span(ng-if='complianceContact.properties.phone[0].value') {{ complianceContact.properties.phone[0].value }}
+            span(ng-if='!complianceContact.properties.phone[0].value') N/A
+      .col-md-12.editable-trigger
+        h4 Compliance Notes
+          a.icon-edit.lynk.lynk-edit(ng-click='editNotes.$show()', ng-hide='editNotes.$visible')
+        .pre(editable-textarea='account.complianceNotes', e-form='editNotes',  e-rows='10', onaftersave='updateData()') {{ account.complianceNotes || 'N/A'}}
+
+      .clearfix
+    //- Remember to add Accounting Officer
+    tab(heading='Invoicing' ng-if="isAdmin()")
+      .col-md-6
+          h4 Pricing Type
+          | {{ account.parsed['Pricing Type'] || 'N/A' }}
+      .col-md-6
+        h4 Pricing
+        | {{ account.parsed['Pricing'] || 'N/A' }}
+      .clearfix
+      .col-md-12.editable-trigger
+        h4 Invoicing Instruction
+          a.icon-edit.lynk.lynk-edit(ng-click='editInstruction.$show()', ng-hide='editInstruction.$visible')
+        .pre(editable-textarea='account.invoicingInstruction', e-form='editInstruction',  e-rows='10', onaftersave='updateData()') {{ account.invoicingInstruction || 'N/A'}}
+        br
+        br
+      .clearfix
+
+    tab(heading='Contract' ng-if="isAdmin()")
+      .col-md-6
+          h4 Status
+          | {{ account.parsed['Status'] || 'N/A' }}
+      .col-md-6
+          h4 Trial
+          | {{ account.parsed['Trial?'] || 'N/A'}}
+      .clearfix
+      .col-md-6
+        h4 Contract Expiry
+        | {{ account.parsed['Contract Expiry'] || 'N/A'}}
+      .clearfix
+        br
+        br
+      .clearfix
+
+  br
+  br

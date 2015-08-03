@@ -1,0 +1,26 @@
+div.sidebar(ng-controller='SidebarCtrl')
+  ul
+    li(ng-class='{active: isActive("/dashboard")}')
+      a(href='/dashboard')
+        span.lynk.nav-icon.nav-dashboard
+        | Dashboard
+    li(ng-class='{active: isActive("/project")}')
+      a(href='/projects')
+        span.lynk.nav-icon.nav-projects
+        | Projects
+    li(ng-class='{active: isActive("/consultation")}')
+      a(href='/consultations')
+        span.lynk.nav-icon.nav-consultations
+        | Consultations
+    li(ng-class='{active: isActive("/expert")}')
+      a(href='/experts')
+        span.lynk.nav-icon.nav-experts
+        | Experts
+    li(ng-class='{active: isActive("/account")}')
+      a(href='/accounts')
+        span.lynk.nav-icon.nav-accounts
+        | Accounts
+    li(ng-show='isAdmin()', ng-class='{active: isActive("/admin")}')
+      a(href='/admin')
+        span.lynk.nav-icon.nav-admin
+        | Admin

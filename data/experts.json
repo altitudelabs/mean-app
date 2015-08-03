@@ -1,0 +1,274 @@
+{ 
+    "_id" : ObjectId("54871d69e4b0d03ea3da34f8"), 
+    "contacts" : [
+        "546fc75ce4b0b2ed15760e3d"
+    ], 
+    "linkedProjectIds" : [
+
+    ], 
+    "isCompliant" : false, 
+    "acceptedTandC" : false, 
+    "relateIQ" : {
+        "company" : "TE Connectivity"
+    }, 
+    "knowledgePartner" : "Lead", 
+    "location" : "Thailand", 
+    "company" : "TE Connectivity", 
+    "startDate" : "2015-01-01", 
+    "title" : "ASEAN Business Development Manager", 
+    "senior" : "", 
+    "notes" : "", 
+    "bio" : "", 
+    "name" : "Atiput Kaowisuth", 
+    "linkedinId" : "", 
+    "parentListId" : "54871c35e4b01d5ccb3a9e23", 
+    "objectId" : "54871d69e4b0d03ea3da34f8", 
+    "syncDate" : ISODate("2015-08-03T09:12:12.817+0000")
+}
+{ 
+    "_id" : ObjectId("54871d69e4b0d03ea3da34f7"), 
+    "contacts" : [
+        "546fc273e4b0b2ed1575e137"
+    ], 
+    "linkedProjectIds" : [
+
+    ], 
+    "isCompliant" : false, 
+    "acceptedTandC" : false, 
+    "relateIQ" : {
+        "country" : "c68", 
+        "company" : "Leighton Holdings Limited"
+    }, 
+    "knowledgePartner" : "Lead", 
+    "progressStatus" : "Not Contacted", 
+    "location" : "Philippines", 
+    "company" : "Leighton Holdings Limited", 
+    "title" : "Former CEO and consultant", 
+    "senior" : "", 
+    "notes" : "", 
+    "bio" : "", 
+    "name" : "Wal King", 
+    "linkedinId" : "", 
+    "parentListId" : "54871c35e4b01d5ccb3a9e23", 
+    "objectId" : "54871d69e4b0d03ea3da34f7", 
+    "syncDate" : ISODate("2015-08-03T09:12:12.829+0000")
+}
+{ 
+    "_id" : ObjectId("54871d69e4b0d03ea3da34f6"), 
+    "contacts" : [
+        "546fc23be4b0b2ed1575dbb6"
+    ], 
+    "linkedProjectIds" : [
+
+    ], 
+    "isCompliant" : false, 
+    "acceptedTandC" : false, 
+    "relateIQ" : {
+        "country" : "c68", 
+        "company" : "Barcino Corporation"
+    }, 
+    "knowledgePartner" : "Lead", 
+    "progressStatus" : "Attempted to Contact via Linkedin - No Response", 
+    "location" : "Philippines", 
+    "company" : "Barcino Corporation", 
+    "startDate" : "2010-07-01", 
+    "title" : "Sales Account Manager", 
+    "senior" : "", 
+    "notes" : "", 
+    "bio" : "", 
+    "name" : "Dexter Napili", 
+    "linkedinId" : "", 
+    "parentListId" : "54871c35e4b01d5ccb3a9e23", 
+    "objectId" : "54871d69e4b0d03ea3da34f6", 
+    "syncDate" : ISODate("2015-08-03T09:12:12.833+0000")
+}
+{ 
+    "_id" : ObjectId("54871d69e4b0d03ea3da34f5"), 
+    "contacts" : [
+        "546fc295e4b0b2ed1575e53b"
+    ], 
+    "linkedProjectIds" : [
+
+    ], 
+    "isCompliant" : false, 
+    "acceptedTandC" : false, 
+    "relateIQ" : {
+        "country" : "c68", 
+        "company" : "philippine foremost milling corporation"
+    }, 
+    "knowledgePartner" : "Lead", 
+    "progressStatus" : "Attempted to Contact via Linkedin - No Response", 
+    "location" : "Philippines", 
+    "company" : "philippine foremost milling corporation", 
+    "title" : "President", 
+    "senior" : "", 
+    "notes" : "", 
+    "bio" : "", 
+    "name" : "Aileen Uygongco OngkaUnited Kingdom (UK)o", 
+    "linkedinId" : "", 
+    "parentListId" : "54871c35e4b01d5ccb3a9e23", 
+    "objectId" : "54871d69e4b0d03ea3da34f5", 
+    "syncDate" : ISODate("2015-08-03T09:12:12.836+0000")
+}
+{ 
+    "_id" : ObjectId("54871d69e4b0d03ea3da34f1"), 
+    "contacts" : [
+        "546fc261e4b0b2ed1575def7"
+    ], 
+    "linkedProjectIds" : [
+
+    ], 
+    "isCompliant" : false, 
+    "acceptedTandC" : false, 
+    "relateIQ" : {
+        "country" : "c17", 
+        "company" : "Quality HealthCare Medical Services Ltd"
+    }, 
+    "knowledgePartner" : "Lead", 
+    "location" : "Hong Kong", 
+    "company" : "Quality HealthCare Medical Services Ltd", 
+    "title" : "Accounts Manager, Business Division", 
+    "senior" : "Standard", 
+    "notes" : "", 
+    "bio" : "Knowledge Partner #1: Ginny Chan\nKP is an Account Manager of Business Division at Quality HealthCare. She has an experience with providing medical, network & TPA services to portfolio accounts up to 350 corporate clients. Previously, she was a Senior Manager in Insurance Business for Phillip Financial Advisors (HK) Ltd where she provided advisory services & business solutions on all insurance products to individual & corporate clients. She was also a Relationship Manager at AXA Wealth Management (HK) Ltd - Swissprivilege where she planned strategies and management as well as provide insurance services for up to 200 individual & corporate client accounts.", 
+    "name" : "Ginny Chan", 
+    "linkedinId" : "", 
+    "parentListId" : "54871c35e4b01d5ccb3a9e23", 
+    "objectId" : "54871d69e4b0d03ea3da34f1", 
+    "syncDate" : ISODate("2015-08-03T09:12:12.844+0000")
+}
+{ 
+    "_id" : ObjectId("557a9bc3e4b08f18fb29e8f1"), 
+    "contacts" : [
+        "557a9bc2e4b08f18fb29e8ee"
+    ], 
+    "linkedProjectIds" : [
+
+    ], 
+    "isCompliant" : false, 
+    "acceptedTandC" : false, 
+    "knowledgePartner" : "Lead", 
+    "senior" : "", 
+    "notes" : "", 
+    "bio" : "", 
+    "name" : "Jacky Fok", 
+    "linkedinId" : "", 
+    "parentListId" : "54871c35e4b01d5ccb3a9e23", 
+    "objectId" : "557a9bc3e4b08f18fb29e8f1", 
+    "syncDate" : ISODate("2015-08-03T09:12:12.850+0000")
+}
+{ 
+    "_id" : ObjectId("54871d69e4b0d03ea3da34f4"), 
+    "contacts" : [
+        "546fc273e4b0b2ed1575e129"
+    ], 
+    "linkedProjectIds" : [
+
+    ], 
+    "isCompliant" : false, 
+    "acceptedTandC" : false, 
+    "relateIQ" : {
+        "country" : "c38", 
+        "company" : "the One of the largest publicly-listed pharmaceuticals company in Southeast Asia."
+    }, 
+    "knowledgePartner" : "Lead", 
+    "progressStatus" : "Attempted to Contact via Linkedin - No Response", 
+    "location" : "Indonesia", 
+    "company" : "the One of the largest publicly-listed pharmaceuticals company in Southeast Asia.", 
+    "startDate" : "2013-05-01", 
+    "title" : "Country Development Manager", 
+    "senior" : "", 
+    "notes" : "", 
+    "bio" : "", 
+    "name" : "Sujono Darsono", 
+    "linkedinId" : "", 
+    "parentListId" : "54871c35e4b01d5ccb3a9e23", 
+    "objectId" : "54871d69e4b0d03ea3da34f4", 
+    "syncDate" : ISODate("2015-08-03T09:12:12.853+0000")
+}
+{ 
+    "_id" : ObjectId("54871d69e4b0d03ea3da34f2"), 
+    "contacts" : [
+        "54871d1ee4b0d03ea3da301c"
+    ], 
+    "linkedProjectIds" : [
+
+    ], 
+    "isCompliant" : false, 
+    "acceptedTandC" : false, 
+    "relateIQ" : {
+        "country" : "c68", 
+        "company" : "Workplace Asia Wellness Solutions, Inc."
+    }, 
+    "knowledgePartner" : "Knowledge Partner", 
+    "progressStatus" : "Contacted - Need T&C, Completed Compliance Training", 
+    "location" : "Philippines", 
+    "company" : "Workplace Asia Wellness Solutions, Inc.", 
+    "startDate" : "2010-01-10", 
+    "title" : "Managing Director", 
+    "senior" : "Standard", 
+    "notes" : "", 
+    "bio" : "Knowledge Partner: Susan Grace Rivera\nCompany: Workplace Asia Wellness Solutions, Inc.\nPosition: Managing Director\nFormer Company: Ayala Corporation (2006-2010)\nFormer Position: Group Head - HR, Member - Ayala HR Council\nBackground:\nKnowledge Partner is currently Managing Director at Workplace Asia Wellness Solutions, Inc. (October 2010 ‰ÛÒ Present), which help organizations with large workforces engage their people through high-impact wellness programs while managing their health risks and associated costs. She is also serving as Managing Consultant & W.E.L.L. Coach at TLC Consulting and Coaching Solutions since April 2010, and Chair and CEO at PARTHIA Philippines, Inc. since December 2005. Prior to that, she served as Group Head - Human Resources at Globe Telecom, Inc. (March 2006 ‰ÛÒ September 2010), a member of the Senior Executive Group reporting to the President and CEO, responsible for leading the Human Resources function. From 2006 to 2010, she served as Group Head- HR, Member - Ayala HR Council at Ayala Corporation. As a Council member, she collaborated with other HR Heads in the group with regard to concerns that impact the businesses, their management, and employees within the individual subsidiary and the whole group. She was also a Member of People Management Association of the Philippines from 1992 to 2010. Her other experiences includes Country Manager at Hewitt Associates (2002-2005), and Senior Vice President for Human Resources at Philippine Telegraph & Telecom, Inc. (1986 ‰ÛÒ 1992).\n\nExpertise: Human Capital Consulting, W.E.L.L Coaching, \nContact owner: Martin\nSource: www.linkedin.com/profile/view?id=88541060\nStatus: called; sent t&c; rate tbc\nEmail: sg.rivera@thetlcsolution.com\nPhone number: 63-917-8181838Knowledge Partner: Susan Grace Rivera\nCompany: Workplace Asia Wellness Solutions, Inc.\nPosition: Managing Director\nFormer Company: Ayala Corporation (2006-2010)\nFormer Position: Group Head - HR, Member - Ayala HR Council\nCountry: Philippines\nBackground:\nKnowledge Partner is currently Managing Director at Workplace Asia Wellness Solutions, Inc. (October 2010 – Present), which help organizations with large workforces engage their people through high-impact wellness programs while managing their health risks and associated costs. She is also serving as Managing Consultant & W.E.L.L. Coach at TLC Consulting and Coaching Solutions since April 2010, and Chair and CEO at PARTHIA Philippines, Inc. since December 2005. Prior to that, she served as Group Head - Human Resources at Globe Telecom, Inc. (March 2006 – September 2010), a member of the Senior Executive Group reporting to the President and CEO, responsible for leading the Human Resources function. From 2006 to 2010, she served as Group Head- HR, Member - Ayala HR Council at Ayala Corporation. As a Council member, she collaborated with other HR Heads in the group with regard to concerns that impact the businesses, their management, and employees within the individual subsidiary and the whole group. She was also a Member of People Management Association of the Philippines from 1992 to 2010. Her other experiences includes Country Manager at Hewitt Associates (2002-2005), and Senior Vice President for Human Resources at Philippine Telegraph & Telecom, Inc. (1986 – 1992).\n\nExpertise: Human Capital Consulting, W.E.L.L Coaching, \nContact owner: Martin\nSource: www.linkedin.com/profile/view?id=88541060\nStatus: called; sent t&c; rate tbc\nEmail: sg.rivera@thetlcsolution.com\nPhone number: 63-917-8181838", 
+    "name" : "Susan Grace Rivera", 
+    "linkedinId" : "", 
+    "parentListId" : "54871c35e4b01d5ccb3a9e23", 
+    "objectId" : "54871d69e4b0d03ea3da34f2", 
+    "syncDate" : ISODate("2015-08-03T09:12:12.838+0000")
+}
+{ 
+    "_id" : ObjectId("54871d69e4b0d03ea3da34f3"), 
+    "contacts" : [
+        "546fc254e4b0b2ed1575ddee"
+    ], 
+    "linkedProjectIds" : [
+
+    ], 
+    "isCompliant" : false, 
+    "acceptedTandC" : false, 
+    "relateIQ" : {
+        "country" : "c38", 
+        "company" : "PT.Terminal Muara Jambi"
+    }, 
+    "knowledgePartner" : "Lead", 
+    "progressStatus" : "Received Response - Need to Outreach", 
+    "location" : "Indonesia", 
+    "company" : "PT.Terminal Muara Jambi", 
+    "startDate" : "2013-09-01", 
+    "title" : "Operation and Business Development General Manager", 
+    "senior" : "", 
+    "notes" : "", 
+    "bio" : "", 
+    "name" : "Dino Hendra Jacob", 
+    "linkedinId" : "", 
+    "parentListId" : "54871c35e4b01d5ccb3a9e23", 
+    "objectId" : "54871d69e4b0d03ea3da34f3", 
+    "syncDate" : ISODate("2015-08-03T09:12:12.855+0000")
+}
+{ 
+    "_id" : ObjectId("54871d69e4b0d03ea3da34f0"), 
+    "contacts" : [
+        "546fc264e4b0b2ed1575df8e"
+    ], 
+    "linkedProjectIds" : [
+
+    ], 
+    "isCompliant" : false, 
+    "acceptedTandC" : false, 
+    "relateIQ" : {
+        "country" : "c68", 
+        "company" : "RFM Corp"
+    }, 
+    "knowledgePartner" : "Lead", 
+    "progressStatus" : "Attempted to Contact via Linkedin - No Response", 
+    "location" : "Philippines", 
+    "company" : "RFM Corp", 
+    "title" : "Senior VP/Gen Mgr:Flour Group", 
+    "senior" : "", 
+    "notes" : "", 
+    "bio" : "", 
+    "name" : "Norman P Uy", 
+    "linkedinId" : "", 
+    "parentListId" : "54871c35e4b01d5ccb3a9e23", 
+    "objectId" : "54871d69e4b0d03ea3da34f0", 
+    "syncDate" : ISODate("2015-08-03T09:12:12.858+0000")
+}

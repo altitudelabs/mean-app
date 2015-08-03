@@ -1,0 +1,27 @@
+mixin expert-row(statusLabel, expertStatus, filter)
+  tr.header
+    td(colspan='11') #{statusLabel}
+  tr(ng-if='expertsTab.expertsCount("#{expertStatus}") > 0', ng-repeat='expert in project.experts|#{filter}:expert.statusInProject')
+    td
+      input(type='checkbox' ng-model='expert.selected' ng-click='expertsTab.select(expert)')
+    td.editable-trigger
+      span(editable-text='expert.partnerRef' e-form='editPartnerRef', onaftersave='patchData()') {{ expert.partnerRef || 'N/A' }}
+      a.icon-edit.lynk.lynk-edit(ng-click='editPartnerRef.$show()', ng-hide='editPartnerRef.$visible')
+    td
+      a(href='/expert/object/{{ expert.objectId }}')
+        | {{ expert.name }}
+    td {{ getTitle(expert) }}
+    td {{ expert.knowledgePartner || 'N/A' }}
+    td {{ expert.senior ? expert.senior : 'N/A' }}
+    td {{ expert.hourlyRate || 'N/A' }}
+    td {{ expert.location || 'N/A' }}
+    td.editable-trigger
+      span(ng-model='expert.addedBy', e-form='editAddedBy', editable-select='expert.addedBy', e-ng-options='m.name for m in project.members', onaftersave='patchData()') {{ expert.addedBy.name }}
+      a.icon-edit.lynk.lynk-edit(ng-click='editAddedBy.$show()', ng-hide='editAddedBy.$visible')
+    td.btn-cell
+      button.btn.btn-table(ng-class='{ "btn-white": expert.history || expert.experience || expert.country.length, "btn-primary": !expert.history && !expert.experience && !expert.country.length }', ng-click='expertsTab.bioModal(expert, project)') {{ (expert.history || expert.experience || expert.country.length) ? 'Edit Bio' : 'Add Bio' }}
+    td.btn-cell
+      button.btn.btn-table(ng-class='{ "btn-white": expert.notes, "btn-primary": !expert.notes }', ng-click='expertsTab.notesModal(expert, project)') {{ expert.notes ? 'Edit Notes' : 'Add Notes'}}
+  tr(ng-if='expertsTab.expertsCount("#{expertStatus}") === 0')
+    td.text-center(colspan='11')
+      span No one yet

@@ -1,0 +1,44 @@
+.expert-detail-overview-tab {
+  .position {
+    color: $gray;
+  }
+
+  .project-note {
+    margin-top: 5px;
+    margin-bottom: 10px;
+
+    .project-name {
+      padding: 3px 5px;
+      background-color: $gray-light;
+      color: #fff;
+      font-size: 12px;
+      margin-right: 5px;
+    }
+  }
+
+  .project-bio {
+    margin-top: 5px;
+    margin-bottom: 10px;
+
+    .project-name {
+      padding: 3px 5px;
+      background-color: $gray-light;
+      color: #fff;
+      font-size: 12px;
+      margin-right: 5px;
+    }
+
+    .history, .experience {
+      padding-top:6px;
+      text-decoration: underline;
+      font-size:10px;
+    }
+
+  }
+}
+
+.table-expert-compliance {
+  width: 100%;
+  .px-80 {width:80px}
+  .px-100 {width:100px}
+}
