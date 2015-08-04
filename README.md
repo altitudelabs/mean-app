@@ -15,7 +15,15 @@ Lynk is a platform of experts where business clients (e.g. banks) can request ph
 Design file: straitsnetwork_invoicing_wireframe_v3.pdf
 
 1. Take a look at page 1 of the design file
-2. In the side bar navigation menu, add an entry called: "Invoicing"
-3. Using UI-Grid (http://ui-grid.info/) show the list of consultations that are completed on the route client/app/invoicing
+2. In the side bar navigation menu, add an entry called: "Invoicing", which should point to the route client/app/invoicing
+3. Using UI-Grid (http://ui-grid.info/) show the list of consultations that are completed on the route client/app/invoicing, following the design file as much as you can
 
 The end result should display all the completed consultations by their data.
+
+Bonus: 
+
+1. 'Chargeable Hours' and 'Notes' should be editable inline
+2. Pressing enter will save the inputs back to the consultation 
+
+Email me (Eric) if you have any questions at: erictsang@altitudelabs.com 
+
