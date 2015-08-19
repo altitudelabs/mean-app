@@ -1,636 +1,106 @@
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092f90"), 
-    "objectId" : "r0", 
-    "display" : "Global", 
-    "syncDate" : ISODate("2015-07-07T07:03:03.981+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092f91"), 
-    "objectId" : "r1", 
-    "display" : "ASEAN", 
-    "syncDate" : ISODate("2015-07-07T07:03:03.990+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092f92"), 
-    "objectId" : "r2", 
-    "display" : "Asia Pacific (APAC)", 
-    "syncDate" : ISODate("2015-07-07T07:03:03.991+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092f93"), 
-    "objectId" : "r3", 
-    "display" : "Europe", 
-    "syncDate" : ISODate("2015-07-07T07:03:03.992+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092f94"), 
-    "objectId" : "r4", 
-    "display" : "North America", 
-    "syncDate" : ISODate("2015-07-07T07:03:03.992+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092f95"), 
-    "objectId" : "r5", 
-    "display" : "Latin America", 
-    "syncDate" : ISODate("2015-07-07T07:03:03.993+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092f96"), 
-    "objectId" : "r6", 
-    "display" : "Middle East", 
-    "syncDate" : ISODate("2015-07-07T07:03:03.993+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092f97"), 
-    "objectId" : "r7", 
-    "display" : "Africa", 
-    "syncDate" : ISODate("2015-07-07T07:03:03.994+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092f98"), 
-    "objectId" : "c1", 
-    "display" : "Algeria", 
-    "syncDate" : ISODate("2015-07-07T07:03:03.995+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092f99"), 
-    "objectId" : "c2", 
-    "display" : "Argentina", 
-    "syncDate" : ISODate("2015-07-07T07:03:03.995+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092f9a"), 
-    "objectId" : "c3", 
-    "display" : "Australia", 
-    "syncDate" : ISODate("2015-07-07T07:03:03.996+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092f9b"), 
-    "objectId" : "c4", 
-    "display" : "Austria", 
-    "syncDate" : ISODate("2015-07-07T07:03:03.996+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092f9c"), 
-    "objectId" : "c5", 
-    "display" : "Bahrain", 
-    "syncDate" : ISODate("2015-07-07T07:03:03.997+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092f9d"), 
-    "objectId" : "c6", 
-    "display" : "Bangladesh", 
-    "syncDate" : ISODate("2015-07-07T07:03:03.997+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092f9e"), 
-    "objectId" : "c7", 
-    "display" : "Belgium", 
-    "syncDate" : ISODate("2015-07-07T07:03:03.998+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092f9f"), 
-    "objectId" : "c8", 
-    "display" : "Bolivia", 
-    "syncDate" : ISODate("2015-07-07T07:03:03.999+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092fa0"), 
-    "objectId" : "c9", 
-    "display" : "Brazil", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.000+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092fa1"), 
-    "objectId" : "c10", 
-    "display" : "Brunei", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.000+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092fa2"), 
-    "objectId" : "c11", 
-    "display" : "Bulgaria", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.000+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092fa3"), 
-    "objectId" : "c12", 
-    "display" : "Cambodia", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.001+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092fa4"), 
-    "objectId" : "c13", 
-    "display" : "Cameroon", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.001+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092fa5"), 
-    "objectId" : "c14", 
-    "display" : "Canada", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.002+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092fa6"), 
-    "objectId" : "c15", 
-    "display" : "Caribbean", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.003+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092fa7"), 
-    "objectId" : "c16", 
-    "display" : "Chile", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.004+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092fa8"), 
-    "objectId" : "c17", 
-    "display" : "China", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.004+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092fa9"), 
-    "objectId" : "c18", 
-    "display" : "Colombia", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.022+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092faa"), 
-    "objectId" : "c19", 
-    "display" : "Costa Rica", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.023+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092fab"), 
-    "objectId" : "c20", 
-    "display" : "Côte d’Ivoire", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.024+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092fac"), 
-    "objectId" : "c21", 
-    "display" : "Croatia", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.024+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092fad"), 
-    "objectId" : "c22", 
-    "display" : "Cuba", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.025+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092fae"), 
-    "objectId" : "c23", 
-    "display" : "Cyprus", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.025+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092faf"), 
-    "objectId" : "c24", 
-    "display" : "Czech Republic", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.026+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092fb0"), 
-    "objectId" : "c25", 
-    "display" : "Denmark", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.027+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092fb1"), 
-    "objectId" : "c26", 
-    "display" : "Ecuador", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.028+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092fb2"), 
-    "objectId" : "c27", 
-    "display" : "Egypt", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.028+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092fb3"), 
-    "objectId" : "c28", 
-    "display" : "Finland", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.029+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092fb4"), 
-    "objectId" : "c29", 
-    "display" : "France", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.029+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092fb5"), 
-    "objectId" : "c30", 
-    "display" : "Germany", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.030+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092fb6"), 
-    "objectId" : "c31", 
-    "display" : "Ghana", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.030+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092fb7"), 
-    "objectId" : "c32", 
-    "display" : "Greece", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.031+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092fb8"), 
-    "objectId" : "c33", 
-    "display" : "Guam", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.031+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092fb9"), 
-    "objectId" : "c34", 
-    "display" : "Hong Kong", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.032+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092fba"), 
-    "objectId" : "c35", 
-    "display" : "Hungary", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.033+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092fbb"), 
-    "objectId" : "c36", 
-    "display" : "Iceland", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.034+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092fbc"), 
-    "objectId" : "c37", 
-    "display" : "India", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.035+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092fbd"), 
-    "objectId" : "c38", 
-    "display" : "Indonesia", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.036+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092fbe"), 
-    "objectId" : "c39", 
-    "display" : "Iran", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.036+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092fbf"), 
-    "objectId" : "c40", 
-    "display" : "Iraq", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.037+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092fc0"), 
-    "objectId" : "c41", 
-    "display" : "Ireland", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.037+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092fc1"), 
-    "objectId" : "c42", 
-    "display" : "Israel", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.038+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092fc2"), 
-    "objectId" : "c43", 
-    "display" : "Italy", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.040+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092fc3"), 
-    "objectId" : "c44", 
-    "display" : "Jamaica", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.060+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092fc4"), 
-    "objectId" : "c45", 
-    "display" : "Japan", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.060+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092fc5"), 
-    "objectId" : "c46", 
-    "display" : "Jordan", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.061+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092fc6"), 
-    "objectId" : "c47", 
-    "display" : "Kazakhstan", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.062+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092fc7"), 
-    "objectId" : "c48", 
-    "display" : "Kenya", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.062+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092fc8"), 
-    "objectId" : "c49", 
-    "display" : "Kuwait", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.063+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092fc9"), 
-    "objectId" : "c50", 
-    "display" : "Laos", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.063+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092fca"), 
-    "objectId" : "c51", 
-    "display" : "Libya", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.064+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092fcb"), 
-    "objectId" : "c52", 
-    "display" : "Macau", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.064+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092fcc"), 
-    "objectId" : "c53", 
-    "display" : "Malaysia", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.065+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092fcd"), 
-    "objectId" : "c54", 
-    "display" : "Mexico", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.066+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092fce"), 
-    "objectId" : "c55", 
-    "display" : "Monaco", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.066+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092fcf"), 
-    "objectId" : "c56", 
-    "display" : "Mongolia", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.067+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092fd0"), 
-    "objectId" : "c57", 
-    "display" : "Morocco", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.068+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092fd1"), 
-    "objectId" : "c58", 
-    "display" : "Mozambique", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.068+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092fd2"), 
-    "objectId" : "c59", 
-    "display" : "Myanmar", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.069+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092fd3"), 
-    "objectId" : "c60", 
-    "display" : "Nepal", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.070+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092fd4"), 
-    "objectId" : "c61", 
-    "display" : "Netherlands", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.070+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092fd5"), 
-    "objectId" : "c62", 
-    "display" : "New Zealand", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.071+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092fd6"), 
-    "objectId" : "c63", 
-    "display" : "Nigeria", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.071+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092fd7"), 
-    "objectId" : "c64", 
-    "display" : "Norway", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.072+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092fd8"), 
-    "objectId" : "c65", 
-    "display" : "Pakistan", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.072+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092fd9"), 
-    "objectId" : "c66", 
-    "display" : "Paraguay", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.073+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092fda"), 
-    "objectId" : "c67", 
-    "display" : "Peru", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.073+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092fdb"), 
-    "objectId" : "c68", 
-    "display" : "Philippines", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.074+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092fdc"), 
-    "objectId" : "c69", 
-    "display" : "Poland", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.074+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092fdd"), 
-    "objectId" : "c70", 
-    "display" : "Portugal", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.075+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092fde"), 
-    "objectId" : "c71", 
-    "display" : "Puerto Rico", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.095+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092fdf"), 
-    "objectId" : "c72", 
-    "display" : "Qatar", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.096+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092fe0"), 
-    "objectId" : "c73", 
-    "display" : "Romania", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.096+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092fe1"), 
-    "objectId" : "c74", 
-    "display" : "Russia", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.097+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092fe2"), 
-    "objectId" : "c75", 
-    "display" : "Saudi Arabia", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.097+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092fe3"), 
-    "objectId" : "c76", 
-    "display" : "Serbia and Montenegro", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.098+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092fe4"), 
-    "objectId" : "c77", 
-    "display" : "Singapore", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.098+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092fe5"), 
-    "objectId" : "c78", 
-    "display" : "Slovakia", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.099+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092fe6"), 
-    "objectId" : "c79", 
-    "display" : "Slovenia", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.099+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092fe7"), 
-    "objectId" : "c80", 
-    "display" : "South Africa", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.100+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092fe8"), 
-    "objectId" : "c81", 
-    "display" : "South Korea", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.100+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092fe9"), 
-    "objectId" : "c82", 
-    "display" : "Spain", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.100+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092fea"), 
-    "objectId" : "c83", 
-    "display" : "Sri Lanka", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.101+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092feb"), 
-    "objectId" : "c84", 
-    "display" : "Sweden", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.102+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092fec"), 
-    "objectId" : "c85", 
-    "display" : "Switzerland", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.103+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092fed"), 
-    "objectId" : "c86", 
-    "display" : "Taiwan", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.103+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092fee"), 
-    "objectId" : "c87", 
-    "display" : "Tanzania", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.104+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092fef"), 
-    "objectId" : "c88", 
-    "display" : "Thailand", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.104+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092ff0"), 
-    "objectId" : "c89", 
-    "display" : "Timor-Leste", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.105+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092ff1"), 
-    "objectId" : "c90", 
-    "display" : "Turkey", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.105+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092ff2"), 
-    "objectId" : "c91", 
-    "display" : "Ukraine", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.106+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092ff3"), 
-    "objectId" : "c92", 
-    "display" : "United Arab Emirates (UAE)", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.107+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092ff4"), 
-    "objectId" : "c93", 
-    "display" : "United Kingdom (UK)", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.109+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092ff5"), 
-    "objectId" : "c94", 
-    "display" : "United States (US)", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.110+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092ff6"), 
-    "objectId" : "c95", 
-    "display" : "Uruguay", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.110+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092ff7"), 
-    "objectId" : "c96", 
-    "display" : "Uzbekistan", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.111+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092ff8"), 
-    "objectId" : "c97", 
-    "display" : "Venezuela", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.155+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451092ff9"), 
-    "objectId" : "c98", 
-    "display" : "Vietnam", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.155+0000")
-}
+{ "_id" : { "$oid" : "558d7798ed06b16451092f90" }, "objectId" : "r0", "display" : "Global", "syncDate" : { "$date" : "2015-07-07T07:03:03.981+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092f91" }, "objectId" : "r1", "display" : "ASEAN", "syncDate" : { "$date" : "2015-07-07T07:03:03.990+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092f92" }, "objectId" : "r2", "display" : "Asia Pacific (APAC)", "syncDate" : { "$date" : "2015-07-07T07:03:03.991+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092f93" }, "objectId" : "r3", "display" : "Europe", "syncDate" : { "$date" : "2015-07-07T07:03:03.992+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092f94" }, "objectId" : "r4", "display" : "North America", "syncDate" : { "$date" : "2015-07-07T07:03:03.992+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092f95" }, "objectId" : "r5", "display" : "Latin America", "syncDate" : { "$date" : "2015-07-07T07:03:03.993+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092f96" }, "objectId" : "r6", "display" : "Middle East", "syncDate" : { "$date" : "2015-07-07T07:03:03.993+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092f97" }, "objectId" : "r7", "display" : "Africa", "syncDate" : { "$date" : "2015-07-07T07:03:03.994+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092f98" }, "objectId" : "c1", "display" : "Algeria", "syncDate" : { "$date" : "2015-07-07T07:03:03.995+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092f99" }, "objectId" : "c2", "display" : "Argentina", "syncDate" : { "$date" : "2015-07-07T07:03:03.995+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092f9a" }, "objectId" : "c3", "display" : "Australia", "syncDate" : { "$date" : "2015-07-07T07:03:03.996+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092f9b" }, "objectId" : "c4", "display" : "Austria", "syncDate" : { "$date" : "2015-07-07T07:03:03.996+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092f9c" }, "objectId" : "c5", "display" : "Bahrain", "syncDate" : { "$date" : "2015-07-07T07:03:03.997+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092f9d" }, "objectId" : "c6", "display" : "Bangladesh", "syncDate" : { "$date" : "2015-07-07T07:03:03.997+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092f9e" }, "objectId" : "c7", "display" : "Belgium", "syncDate" : { "$date" : "2015-07-07T07:03:03.998+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092f9f" }, "objectId" : "c8", "display" : "Bolivia", "syncDate" : { "$date" : "2015-07-07T07:03:03.999+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092fa0" }, "objectId" : "c9", "display" : "Brazil", "syncDate" : { "$date" : "2015-07-07T07:03:04.000+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092fa1" }, "objectId" : "c10", "display" : "Brunei", "syncDate" : { "$date" : "2015-07-07T07:03:04.000+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092fa2" }, "objectId" : "c11", "display" : "Bulgaria", "syncDate" : { "$date" : "2015-07-07T07:03:04.000+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092fa3" }, "objectId" : "c12", "display" : "Cambodia", "syncDate" : { "$date" : "2015-07-07T07:03:04.001+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092fa4" }, "objectId" : "c13", "display" : "Cameroon", "syncDate" : { "$date" : "2015-07-07T07:03:04.001+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092fa5" }, "objectId" : "c14", "display" : "Canada", "syncDate" : { "$date" : "2015-07-07T07:03:04.002+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092fa6" }, "objectId" : "c15", "display" : "Caribbean", "syncDate" : { "$date" : "2015-07-07T07:03:04.003+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092fa7" }, "objectId" : "c16", "display" : "Chile", "syncDate" : { "$date" : "2015-07-07T07:03:04.004+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092fa8" }, "objectId" : "c17", "display" : "China", "syncDate" : { "$date" : "2015-07-07T07:03:04.004+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092fa9" }, "objectId" : "c18", "display" : "Colombia", "syncDate" : { "$date" : "2015-07-07T07:03:04.022+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092faa" }, "objectId" : "c19", "display" : "Costa Rica", "syncDate" : { "$date" : "2015-07-07T07:03:04.023+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092fab" }, "objectId" : "c20", "display" : "Côte d’Ivoire", "syncDate" : { "$date" : "2015-07-07T07:03:04.024+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092fac" }, "objectId" : "c21", "display" : "Croatia", "syncDate" : { "$date" : "2015-07-07T07:03:04.024+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092fad" }, "objectId" : "c22", "display" : "Cuba", "syncDate" : { "$date" : "2015-07-07T07:03:04.025+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092fae" }, "objectId" : "c23", "display" : "Cyprus", "syncDate" : { "$date" : "2015-07-07T07:03:04.025+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092faf" }, "objectId" : "c24", "display" : "Czech Republic", "syncDate" : { "$date" : "2015-07-07T07:03:04.026+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092fb0" }, "objectId" : "c25", "display" : "Denmark", "syncDate" : { "$date" : "2015-07-07T07:03:04.027+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092fb1" }, "objectId" : "c26", "display" : "Ecuador", "syncDate" : { "$date" : "2015-07-07T07:03:04.028+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092fb2" }, "objectId" : "c27", "display" : "Egypt", "syncDate" : { "$date" : "2015-07-07T07:03:04.028+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092fb3" }, "objectId" : "c28", "display" : "Finland", "syncDate" : { "$date" : "2015-07-07T07:03:04.029+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092fb4" }, "objectId" : "c29", "display" : "France", "syncDate" : { "$date" : "2015-07-07T07:03:04.029+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092fb5" }, "objectId" : "c30", "display" : "Germany", "syncDate" : { "$date" : "2015-07-07T07:03:04.030+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092fb6" }, "objectId" : "c31", "display" : "Ghana", "syncDate" : { "$date" : "2015-07-07T07:03:04.030+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092fb7" }, "objectId" : "c32", "display" : "Greece", "syncDate" : { "$date" : "2015-07-07T07:03:04.031+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092fb8" }, "objectId" : "c33", "display" : "Guam", "syncDate" : { "$date" : "2015-07-07T07:03:04.031+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092fb9" }, "objectId" : "c34", "display" : "Hong Kong", "syncDate" : { "$date" : "2015-07-07T07:03:04.032+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092fba" }, "objectId" : "c35", "display" : "Hungary", "syncDate" : { "$date" : "2015-07-07T07:03:04.033+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092fbb" }, "objectId" : "c36", "display" : "Iceland", "syncDate" : { "$date" : "2015-07-07T07:03:04.034+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092fbc" }, "objectId" : "c37", "display" : "India", "syncDate" : { "$date" : "2015-07-07T07:03:04.035+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092fbd" }, "objectId" : "c38", "display" : "Indonesia", "syncDate" : { "$date" : "2015-07-07T07:03:04.036+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092fbe" }, "objectId" : "c39", "display" : "Iran", "syncDate" : { "$date" : "2015-07-07T07:03:04.036+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092fbf" }, "objectId" : "c40", "display" : "Iraq", "syncDate" : { "$date" : "2015-07-07T07:03:04.037+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092fc0" }, "objectId" : "c41", "display" : "Ireland", "syncDate" : { "$date" : "2015-07-07T07:03:04.037+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092fc1" }, "objectId" : "c42", "display" : "Israel", "syncDate" : { "$date" : "2015-07-07T07:03:04.038+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092fc2" }, "objectId" : "c43", "display" : "Italy", "syncDate" : { "$date" : "2015-07-07T07:03:04.040+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092fc3" }, "objectId" : "c44", "display" : "Jamaica", "syncDate" : { "$date" : "2015-07-07T07:03:04.060+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092fc4" }, "objectId" : "c45", "display" : "Japan", "syncDate" : { "$date" : "2015-07-07T07:03:04.060+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092fc5" }, "objectId" : "c46", "display" : "Jordan", "syncDate" : { "$date" : "2015-07-07T07:03:04.061+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092fc6" }, "objectId" : "c47", "display" : "Kazakhstan", "syncDate" : { "$date" : "2015-07-07T07:03:04.062+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092fc7" }, "objectId" : "c48", "display" : "Kenya", "syncDate" : { "$date" : "2015-07-07T07:03:04.062+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092fc8" }, "objectId" : "c49", "display" : "Kuwait", "syncDate" : { "$date" : "2015-07-07T07:03:04.063+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092fc9" }, "objectId" : "c50", "display" : "Laos", "syncDate" : { "$date" : "2015-07-07T07:03:04.063+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092fca" }, "objectId" : "c51", "display" : "Libya", "syncDate" : { "$date" : "2015-07-07T07:03:04.064+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092fcb" }, "objectId" : "c52", "display" : "Macau", "syncDate" : { "$date" : "2015-07-07T07:03:04.064+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092fcc" }, "objectId" : "c53", "display" : "Malaysia", "syncDate" : { "$date" : "2015-07-07T07:03:04.065+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092fcd" }, "objectId" : "c54", "display" : "Mexico", "syncDate" : { "$date" : "2015-07-07T07:03:04.066+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092fce" }, "objectId" : "c55", "display" : "Monaco", "syncDate" : { "$date" : "2015-07-07T07:03:04.066+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092fcf" }, "objectId" : "c56", "display" : "Mongolia", "syncDate" : { "$date" : "2015-07-07T07:03:04.067+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092fd0" }, "objectId" : "c57", "display" : "Morocco", "syncDate" : { "$date" : "2015-07-07T07:03:04.068+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092fd1" }, "objectId" : "c58", "display" : "Mozambique", "syncDate" : { "$date" : "2015-07-07T07:03:04.068+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092fd2" }, "objectId" : "c59", "display" : "Myanmar", "syncDate" : { "$date" : "2015-07-07T07:03:04.069+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092fd3" }, "objectId" : "c60", "display" : "Nepal", "syncDate" : { "$date" : "2015-07-07T07:03:04.070+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092fd4" }, "objectId" : "c61", "display" : "Netherlands", "syncDate" : { "$date" : "2015-07-07T07:03:04.070+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092fd5" }, "objectId" : "c62", "display" : "New Zealand", "syncDate" : { "$date" : "2015-07-07T07:03:04.071+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092fd6" }, "objectId" : "c63", "display" : "Nigeria", "syncDate" : { "$date" : "2015-07-07T07:03:04.071+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092fd7" }, "objectId" : "c64", "display" : "Norway", "syncDate" : { "$date" : "2015-07-07T07:03:04.072+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092fd8" }, "objectId" : "c65", "display" : "Pakistan", "syncDate" : { "$date" : "2015-07-07T07:03:04.072+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092fd9" }, "objectId" : "c66", "display" : "Paraguay", "syncDate" : { "$date" : "2015-07-07T07:03:04.073+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092fda" }, "objectId" : "c67", "display" : "Peru", "syncDate" : { "$date" : "2015-07-07T07:03:04.073+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092fdb" }, "objectId" : "c68", "display" : "Philippines", "syncDate" : { "$date" : "2015-07-07T07:03:04.074+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092fdc" }, "objectId" : "c69", "display" : "Poland", "syncDate" : { "$date" : "2015-07-07T07:03:04.074+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092fdd" }, "objectId" : "c70", "display" : "Portugal", "syncDate" : { "$date" : "2015-07-07T07:03:04.075+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092fde" }, "objectId" : "c71", "display" : "Puerto Rico", "syncDate" : { "$date" : "2015-07-07T07:03:04.095+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092fdf" }, "objectId" : "c72", "display" : "Qatar", "syncDate" : { "$date" : "2015-07-07T07:03:04.096+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092fe0" }, "objectId" : "c73", "display" : "Romania", "syncDate" : { "$date" : "2015-07-07T07:03:04.096+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092fe1" }, "objectId" : "c74", "display" : "Russia", "syncDate" : { "$date" : "2015-07-07T07:03:04.097+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092fe2" }, "objectId" : "c75", "display" : "Saudi Arabia", "syncDate" : { "$date" : "2015-07-07T07:03:04.097+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092fe3" }, "objectId" : "c76", "display" : "Serbia and Montenegro", "syncDate" : { "$date" : "2015-07-07T07:03:04.098+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092fe4" }, "objectId" : "c77", "display" : "Singapore", "syncDate" : { "$date" : "2015-07-07T07:03:04.098+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092fe5" }, "objectId" : "c78", "display" : "Slovakia", "syncDate" : { "$date" : "2015-07-07T07:03:04.099+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092fe6" }, "objectId" : "c79", "display" : "Slovenia", "syncDate" : { "$date" : "2015-07-07T07:03:04.099+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092fe7" }, "objectId" : "c80", "display" : "South Africa", "syncDate" : { "$date" : "2015-07-07T07:03:04.100+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092fe8" }, "objectId" : "c81", "display" : "South Korea", "syncDate" : { "$date" : "2015-07-07T07:03:04.100+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092fe9" }, "objectId" : "c82", "display" : "Spain", "syncDate" : { "$date" : "2015-07-07T07:03:04.100+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092fea" }, "objectId" : "c83", "display" : "Sri Lanka", "syncDate" : { "$date" : "2015-07-07T07:03:04.101+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092feb" }, "objectId" : "c84", "display" : "Sweden", "syncDate" : { "$date" : "2015-07-07T07:03:04.102+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092fec" }, "objectId" : "c85", "display" : "Switzerland", "syncDate" : { "$date" : "2015-07-07T07:03:04.103+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092fed" }, "objectId" : "c86", "display" : "Taiwan", "syncDate" : { "$date" : "2015-07-07T07:03:04.103+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092fee" }, "objectId" : "c87", "display" : "Tanzania", "syncDate" : { "$date" : "2015-07-07T07:03:04.104+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092fef" }, "objectId" : "c88", "display" : "Thailand", "syncDate" : { "$date" : "2015-07-07T07:03:04.104+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092ff0" }, "objectId" : "c89", "display" : "Timor-Leste", "syncDate" : { "$date" : "2015-07-07T07:03:04.105+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092ff1" }, "objectId" : "c90", "display" : "Turkey", "syncDate" : { "$date" : "2015-07-07T07:03:04.105+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092ff2" }, "objectId" : "c91", "display" : "Ukraine", "syncDate" : { "$date" : "2015-07-07T07:03:04.106+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092ff3" }, "objectId" : "c92", "display" : "United Arab Emirates (UAE)", "syncDate" : { "$date" : "2015-07-07T07:03:04.107+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092ff4" }, "objectId" : "c93", "display" : "United Kingdom (UK)", "syncDate" : { "$date" : "2015-07-07T07:03:04.109+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092ff5" }, "objectId" : "c94", "display" : "United States (US)", "syncDate" : { "$date" : "2015-07-07T07:03:04.110+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092ff6" }, "objectId" : "c95", "display" : "Uruguay", "syncDate" : { "$date" : "2015-07-07T07:03:04.110+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092ff7" }, "objectId" : "c96", "display" : "Uzbekistan", "syncDate" : { "$date" : "2015-07-07T07:03:04.111+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092ff8" }, "objectId" : "c97", "display" : "Venezuela", "syncDate" : { "$date" : "2015-07-07T07:03:04.155+0000" } }
+{ "_id" : { "$oid" : "558d7798ed06b16451092ff9" }, "objectId" : "c98", "display" : "Vietnam", "syncDate" : { "$date" : "2015-07-07T07:03:04.155+0000" } }
