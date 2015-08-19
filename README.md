@@ -10,6 +10,8 @@ Lynk is a platform of experts where business clients (e.g. banks) can request ph
 3. Start MongoDB on your local computer
 
 4. Import data/*.json into your MongoDB (use a GUI like [MongoChef](http://3t.io/mongochef/) to make it easier)
+  - use `lynk-mean` as database name
+  - import the json files using the same collection name (e.g. accounts.json -> `accounts` collection) 
 
 5. Run `grunt serve` to run this on your localhost
 
