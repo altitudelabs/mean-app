@@ -1,4 +1,82 @@
 { 
+    "_id" : ObjectId("558d7798ed06b16451093019"), 
+    "objectId" : "31", 
+    "display" : "Healthcare & Life Sciences - Other", 
+    "syncDate" : ISODate("2015-07-07T07:03:04.252+0000")
+}
+{ 
+    "_id" : ObjectId("558d7798ed06b1645109301a"), 
+    "objectId" : "32", 
+    "display" : "Industrials & Manufacturing", 
+    "syncDate" : ISODate("2015-07-07T07:03:04.252+0000")
+}
+{ 
+    "_id" : ObjectId("558d7798ed06b1645109301b"), 
+    "objectId" : "33", 
+    "display" : "Infrastructure - Transportation", 
+    "syncDate" : ISODate("2015-07-07T07:03:04.253+0000")
+}
+{ 
+    "_id" : ObjectId("558d7798ed06b1645109301c"), 
+    "objectId" : "34", 
+    "display" : "Infrastructure - Water", 
+    "syncDate" : ISODate("2015-07-07T07:03:04.253+0000")
+}
+{ 
+    "_id" : ObjectId("558d7798ed06b1645109301d"), 
+    "objectId" : "35", 
+    "display" : "Infrastructure - Other", 
+    "syncDate" : ISODate("2015-07-07T07:03:04.254+0000")
+}
+{ 
+    "_id" : ObjectId("558d7798ed06b1645109301e"), 
+    "objectId" : "36", 
+    "display" : "Logistics & Shipping", 
+    "syncDate" : ISODate("2015-07-07T07:03:04.254+0000")
+}
+{ 
+    "_id" : ObjectId("558d7798ed06b1645109301f"), 
+    "objectId" : "37", 
+    "display" : "Others (Specify)", 
+    "syncDate" : ISODate("2015-07-07T07:03:04.254+0000")
+}
+{ 
+    "_id" : ObjectId("558d7798ed06b16451093020"), 
+    "objectId" : "38", 
+    "display" : "Real Estate", 
+    "syncDate" : ISODate("2015-07-07T07:03:04.255+0000")
+}
+{ 
+    "_id" : ObjectId("558d7798ed06b16451093021"), 
+    "objectId" : "39", 
+    "display" : "Retail & Distribution/Wholesale", 
+    "syncDate" : ISODate("2015-07-07T07:03:04.258+0000")
+}
+{ 
+    "_id" : ObjectId("558d7798ed06b16451093022"), 
+    "objectId" : "40", 
+    "display" : "Security & Identification", 
+    "syncDate" : ISODate("2015-07-07T07:03:04.258+0000")
+}
+{ 
+    "_id" : ObjectId("558d7798ed06b16451093023"), 
+    "objectId" : "41", 
+    "display" : "Technology", 
+    "syncDate" : ISODate("2015-07-07T07:03:04.258+0000")
+}
+{ 
+    "_id" : ObjectId("558d7798ed06b16451093024"), 
+    "objectId" : "42", 
+    "display" : "Telecommunications", 
+    "syncDate" : ISODate("2015-07-07T07:03:04.259+0000")
+}
+{ 
+    "_id" : ObjectId("558d7798ed06b16451093025"), 
+    "objectId" : "43", 
+    "display" : "Travel/ Hospitality & Leisure", 
+    "syncDate" : ISODate("2015-07-07T07:03:04.260+0000")
+}
+{ 
     "_id" : ObjectId("558d7798ed06b16451092ffa"), 
     "objectId" : "0", 
     "display" : "Advertising/ PR/ Media & Entertainment", 
@@ -183,82 +261,4 @@
     "objectId" : "30", 
     "display" : "Healthcare & Life Sciences - Pharma & Biotech", 
     "syncDate" : ISODate("2015-07-07T07:03:04.252+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451093019"), 
-    "objectId" : "31", 
-    "display" : "Healthcare & Life Sciences - Other", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.252+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b1645109301a"), 
-    "objectId" : "32", 
-    "display" : "Industrials & Manufacturing", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.252+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b1645109301b"), 
-    "objectId" : "33", 
-    "display" : "Infrastructure - Transportation", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.253+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b1645109301c"), 
-    "objectId" : "34", 
-    "display" : "Infrastructure - Water", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.253+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b1645109301d"), 
-    "objectId" : "35", 
-    "display" : "Infrastructure - Other", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.254+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b1645109301e"), 
-    "objectId" : "36", 
-    "display" : "Logistics & Shipping", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.254+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b1645109301f"), 
-    "objectId" : "37", 
-    "display" : "Others (Specify)", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.254+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451093020"), 
-    "objectId" : "38", 
-    "display" : "Real Estate", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.255+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451093021"), 
-    "objectId" : "39", 
-    "display" : "Retail & Distribution/Wholesale", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.258+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451093022"), 
-    "objectId" : "40", 
-    "display" : "Security & Identification", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.258+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451093023"), 
-    "objectId" : "41", 
-    "display" : "Technology", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.258+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451093024"), 
-    "objectId" : "42", 
-    "display" : "Telecommunications", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.259+0000")
-}
-{ 
-    "_id" : ObjectId("558d7798ed06b16451093025"), 
-    "objectId" : "43", 
-    "display" : "Travel/ Hospitality & Leisure", 
-    "syncDate" : ISODate("2015-07-07T07:03:04.260+0000")
 }

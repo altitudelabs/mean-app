@@ -1,0 +1,364 @@
+{ 
+    "_id" : ObjectId("558d778fed06b16451092f67"), 
+    "objectId" : "5537571ae4b0293c8b764a70", 
+    "fields" : [
+        {
+            "dataType" : "User", 
+            "isLinkedField" : false, 
+            "isEditable" : true, 
+            "isMultiSelect" : false, 
+            "listOptions" : [
+
+            ], 
+            "name" : "Back-up", 
+            "id" : "51"
+        }, 
+        {
+            "dataType" : "Text", 
+            "isLinkedField" : false, 
+            "isEditable" : false, 
+            "isMultiSelect" : false, 
+            "listOptions" : [
+
+            ], 
+            "name" : "Last Meeting", 
+            "id" : "41"
+        }, 
+        {
+            "dataType" : "DateTime", 
+            "isLinkedField" : false, 
+            "isEditable" : true, 
+            "isMultiSelect" : false, 
+            "listOptions" : [
+
+            ], 
+            "name" : "Last Event Date (sort)", 
+            "id" : "led"
+        }, 
+        {
+            "dataType" : "User", 
+            "isLinkedField" : false, 
+            "isEditable" : true, 
+            "isMultiSelect" : false, 
+            "listOptions" : [
+
+            ], 
+            "name" : "Owner", 
+            "id" : "1"
+        }, 
+        {
+            "dataType" : "Numeric", 
+            "isLinkedField" : false, 
+            "isEditable" : false, 
+            "isMultiSelect" : false, 
+            "listOptions" : [
+
+            ], 
+            "name" : "Inactive (days)", 
+            "id" : "8"
+        }, 
+        {
+            "dataType" : "List", 
+            "isLinkedField" : false, 
+            "isEditable" : true, 
+            "isMultiSelect" : false, 
+            "listOptions" : [
+                {
+                    "display" : "Lead", 
+                    "id" : "0"
+                }, 
+                {
+                    "display" : "Qualified", 
+                    "id" : "1"
+                }, 
+                {
+                    "display" : "Negotiation", 
+                    "id" : "2"
+                }, 
+                {
+                    "display" : "Verbal Commitment", 
+                    "id" : "3"
+                }, 
+                {
+                    "display" : "Signed Contract", 
+                    "id" : "4"
+                }, 
+                {
+                    "display" : "Revisit Later", 
+                    "id" : "5"
+                }, 
+                {
+                    "display" : "Rejected", 
+                    "id" : "6"
+                }
+            ], 
+            "name" : "Status", 
+            "id" : "0"
+        }, 
+        {
+            "dataType" : "List", 
+            "isLinkedField" : false, 
+            "isEditable" : true, 
+            "isMultiSelect" : false, 
+            "listOptions" : [
+                {
+                    "display" : "Bank", 
+                    "id" : "7"
+                }, 
+                {
+                    "display" : "Consulting", 
+                    "id" : "0"
+                }, 
+                {
+                    "display" : "Corporate", 
+                    "id" : "4"
+                }, 
+                {
+                    "display" : "SME / Start-up / Entrepreneur", 
+                    "id" : "6"
+                }, 
+                {
+                    "display" : "Hedge Fund", 
+                    "id" : "2"
+                }, 
+                {
+                    "display" : "Mutual Fund", 
+                    "id" : "3"
+                }, 
+                {
+                    "display" : "Private Equity", 
+                    "id" : "1"
+                }
+            ], 
+            "name" : "Type", 
+            "id" : "5"
+        }, 
+        {
+            "dataType" : "Text", 
+            "isLinkedField" : false, 
+            "isEditable" : false, 
+            "isMultiSelect" : false, 
+            "listOptions" : [
+
+            ], 
+            "name" : "Author of the last communication", 
+            "id" : "15"
+        }, 
+        {
+            "dataType" : "DateTime", 
+            "isLinkedField" : false, 
+            "isEditable" : true, 
+            "isMultiSelect" : false, 
+            "listOptions" : [
+
+            ], 
+            "name" : "Created Date", 
+            "id" : "process_created_date"
+        }, 
+        {
+            "dataType" : "User", 
+            "isLinkedField" : false, 
+            "isEditable" : true, 
+            "isMultiSelect" : false, 
+            "listOptions" : [
+
+            ], 
+            "name" : "Account Manager", 
+            "id" : "18"
+        }, 
+        {
+            "dataType" : "Contact", 
+            "isLinkedField" : false, 
+            "isEditable" : true, 
+            "isMultiSelect" : false, 
+            "listOptions" : [
+
+            ], 
+            "name" : "Primary Contact", 
+            "id" : "23"
+        }, 
+        {
+            "dataType" : "File", 
+            "isLinkedField" : false, 
+            "isEditable" : true, 
+            "isMultiSelect" : false, 
+            "listOptions" : [
+
+            ], 
+            "name" : "Contract", 
+            "id" : "24"
+        }, 
+        {
+            "dataType" : "List", 
+            "isLinkedField" : false, 
+            "isEditable" : true, 
+            "isMultiSelect" : true, 
+            "listOptions" : [
+                {
+                    "display" : "Pay-As-You-Go", 
+                    "id" : "0"
+                }, 
+                {
+                    "display" : "Prepaid Package", 
+                    "id" : "1"
+                }, 
+                {
+                    "display" : "Subscription", 
+                    "id" : "2"
+                }
+            ], 
+            "name" : "Pricing Type", 
+            "id" : "30"
+        }, 
+        {
+            "dataType" : "Text", 
+            "isLinkedField" : false, 
+            "isEditable" : true, 
+            "isMultiSelect" : false, 
+            "listOptions" : [
+
+            ], 
+            "name" : "Notes", 
+            "id" : "32"
+        }, 
+        {
+            "dataType" : "Text", 
+            "isLinkedField" : false, 
+            "isEditable" : true, 
+            "isMultiSelect" : false, 
+            "listOptions" : [
+
+            ], 
+            "name" : "Pricing", 
+            "id" : "31"
+        }, 
+        {
+            "dataType" : "Text", 
+            "isLinkedField" : false, 
+            "isEditable" : true, 
+            "isMultiSelect" : false, 
+            "listOptions" : [
+
+            ], 
+            "name" : "Location", 
+            "id" : "36"
+        }, 
+        {
+            "dataType" : "Date", 
+            "isLinkedField" : false, 
+            "isEditable" : true, 
+            "isMultiSelect" : false, 
+            "listOptions" : [
+
+            ], 
+            "name" : "Contract Expiry", 
+            "id" : "38"
+        }, 
+        {
+            "dataType" : "List", 
+            "isLinkedField" : false, 
+            "isEditable" : true, 
+            "isMultiSelect" : false, 
+            "listOptions" : [
+                {
+                    "display" : "Yes", 
+                    "id" : "0"
+                }, 
+                {
+                    "display" : "No", 
+                    "id" : "1"
+                }
+            ], 
+            "name" : "Trial?", 
+            "id" : "47"
+        }, 
+        {
+            "dataType" : "DateTime", 
+            "isLinkedField" : false, 
+            "isEditable" : false, 
+            "isMultiSelect" : false, 
+            "listOptions" : [
+
+            ], 
+            "name" : "Last Meeting Date", 
+            "id" : "42"
+        }, 
+        {
+            "dataType" : "DateTime", 
+            "isLinkedField" : false, 
+            "isEditable" : false, 
+            "isMultiSelect" : false, 
+            "listOptions" : [
+
+            ], 
+            "name" : "Next Followup Due", 
+            "id" : "43"
+        }, 
+        {
+            "dataType" : "DateTime", 
+            "isLinkedField" : false, 
+            "isEditable" : false, 
+            "isMultiSelect" : false, 
+            "listOptions" : [
+
+            ], 
+            "name" : "Next Meeting Date", 
+            "id" : "45"
+        }, 
+        {
+            "dataType" : "Text", 
+            "isLinkedField" : false, 
+            "isEditable" : false, 
+            "isMultiSelect" : false, 
+            "listOptions" : [
+
+            ], 
+            "name" : "Next Meeting", 
+            "id" : "44"
+        }, 
+        {
+            "dataType" : "Contact", 
+            "isLinkedField" : false, 
+            "isEditable" : true, 
+            "isMultiSelect" : false, 
+            "listOptions" : [
+
+            ], 
+            "name" : "Compliance Contact", 
+            "id" : "53"
+        }, 
+        {
+            "dataType" : "List", 
+            "isLinkedField" : false, 
+            "isEditable" : true, 
+            "isMultiSelect" : false, 
+            "listOptions" : [
+                {
+                    "display" : "Tier 1", 
+                    "id" : "0"
+                }, 
+                {
+                    "display" : "Tier 2", 
+                    "id" : "1"
+                }
+            ], 
+            "name" : "Priority", 
+            "id" : "57"
+        }, 
+        {
+            "dataType" : "DateTime", 
+            "isLinkedField" : false, 
+            "isEditable" : true, 
+            "isMultiSelect" : false, 
+            "listOptions" : [
+
+            ], 
+            "name" : "Close Date", 
+            "id" : "process_close_date"
+        }
+    ], 
+    "modifiedDate" : ISODate("1970-01-01T00:00:00.000+0000"), 
+    "listType" : "account", 
+    "title" : "Current Clients", 
+    "syncDate" : ISODate("2015-07-15T08:29:24.175+0000")
+}

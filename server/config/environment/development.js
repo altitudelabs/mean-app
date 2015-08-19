@@ -5,9 +5,8 @@
 module.exports = {
   // MongoDB connection options
   mongo: {
-    uri: 'mongodb://localhost/admin'
-    // uri: 'mongodb://localhost/lynk-dev'
+    uri: 'mongodb://localhost/lynk-mean'
   },
 
-  seedDB: false
+  seedDB: true
 };

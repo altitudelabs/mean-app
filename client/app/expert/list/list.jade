@@ -70,7 +70,7 @@ div(ng-include='"components/sidebar/sidebar.html"')
         td {{ expert.progressStatus || 'N/A' }}
         td {{ expert.knowledgePartner || 'N/A' }}
       tr(ng-if='experts.length === 0')
-        td.text-center(colspan='10')
+        td.text-center(colspan='5')
           span No experts found
   div.text-center
     //-dir-pagination-controls(on-page-change="pageChanged(newPageNumber)")
